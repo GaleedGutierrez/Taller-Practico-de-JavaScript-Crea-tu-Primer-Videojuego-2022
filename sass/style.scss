@@ -5,14 +5,20 @@
 
 // @import "./dark/style";
 
+// body {
+//     max-width: 1024px;
+//     margin-block-end: 0;
+//     margin-inline: auto;
+// }
+
 .main__game-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-
-    // width: 95%; // temporal
-    // height: 31.3rem; // temporal
+    padding-block: 0.4rem;
+    padding-inline: 0.4rem;
+    box-sizing: border-box;
     border-radius: 2rem;
     margin-block: 1.2rem 0;
     margin-inline: auto;
