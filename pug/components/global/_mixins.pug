@@ -1,0 +1,20 @@
+mixin titles(title)
+    title=title
+
+mixin style-head(style)
+    link(rel="stylesheet", href="../css/"+style)
+
+mixin style-head-responsive(stylesResponsive, screen)
+    link(rel="stylesheet", href="../css/"+stylesResponsive media="screen and (min-width:" +screen+"px)")
+
+mixin figure-img(srcImg, altImg)
+    figure(class!=attributes.class)
+        img(src="../assets/"+srcImg, alt=altImg)
+
+mixin inputs(classLabel, forLabelIdNameInput, classP, title, classInput, typeInput, placeholderInput, autocompleteInput)
+    label(class=classLabel for=forLabelIdNameInput)
+        //- p(class=classP)=title
+        input(id=forLabelIdNameInput class=classInput type=typeInput name=forLabelIdNameInput placeholder=placeholderInput autocomplete=autocompleteInput required)
+
+mixin button-submit(classInput, valueInput)
+    input(class=classInput type="submit" value=valueInput)

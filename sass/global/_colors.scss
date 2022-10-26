@@ -1,0 +1,60 @@
+$white: #f5f5f5;
+$black: #1d1d1e;
+$grey: #383d44;
+$cream-grey: #5f6164;
+$greyish-white: #dcdde0;
+$blue: #2340ef;
+$cream-blue: #2a85ff;
+$orange: #fa864c;
+$cream-orange: #ffbf90;
+$green: #5cd0a7;
+$cream-green: #afe5b1;
+
+body {
+    background-color: $white;
+    color: $black;
+}
+
+p {
+    color: $black;
+}
+
+a {
+    color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+    color: inherit;
+}
+
+form,
+input,
+textarea,
+select,
+button,
+label {
+    background-color: transparent;
+    color: inherit;
+}
+
+/*
+    Configuramos el texto que seleccionamos
+    * Cambiar variables
+*/
+// ::selection {
+//     background-color: var(--primary-color);
+//     color: var(--secondary-color);
+// }

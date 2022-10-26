@@ -1,0 +1,13 @@
+include ./_mixins.pug
+doctype html
+html(lang="en")
+    head
+        include ./_head.pug
+        block head 
+    body
+        if SEE_HEADER
+            include ./_header.pug
+        block main 
+        if SEE_FOOTER
+            include ./_footer.pug
+        block scripts
