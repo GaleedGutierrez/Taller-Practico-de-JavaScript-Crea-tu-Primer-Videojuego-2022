@@ -3,19 +3,19 @@
  * El final de cada nivel debe ser el inicio del siguiente
 */
 
-const EMOJIS = {
-    '-'              : ' ',
-    'O'              : '🚪',
-    'X'              : '💣',
-    'I'              : '🎁',
-    'PLAYER'         : '💀',
-    'BOMB_COLLISION' : '🔥',
-    'GAME_OVER'      : '👎',
-    'WIN'            : '🏆',
-    'LIFE'           : '❤️'
-};
+// export const EMOJIS = {
+//     '-'              : ' ',
+//     'O'              : '🚪',
+//     'X'              : '💣',
+//     'I'              : '🎁',
+//     'PLAYER'         : '💀',
+//     'BOMB_COLLISION' : '🔥',
+//     'GAME_OVER'      : '👎',
+//     'WIN'            : '🏆',
+//     'LIFE'           : '❤️'
+// };
 
-const thoEMOJIS = {
+export const EMOJIS = {
     '-'              : ' ',
     'O'              : '💻',
     'X'              : '👾',
