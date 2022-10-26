@@ -1,0 +1,144 @@
+// font family
+$primary-generic-font: helvetica, arial, sans-serif;
+$secondary-generic-font: verdana;
+$primary-font: "Poppins", sans-serif, $primary-generic-font, $secondary-generic-font;
+$font-x-large: 3.2rem;
+$font-large: 2.4rem;
+
+// font size
+@mixin font-x-large {
+    font-size: 3.2rem;
+    line-height: 3.6rem;
+    font-weight: 500;
+}
+
+@mixin font-large {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+    font-weight: 500;
+}
+
+@mixin font-medium {
+    font-size: 2.1rem;
+    line-height: 2.8rem;
+    font-weight: 400;
+}
+
+@mixin font-small {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    font-weight: 400;
+}
+
+@mixin font-page-heading {
+    @include large;
+
+    font-weight: 500;
+}
+
+@mixin font-heading {
+    font-size: 1.7rem;
+    line-height: 2.4rem;
+    font-weight: 500;
+}
+
+@mixin font-subheading {
+    font-size: 1.3rem;
+    line-height: 1.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+@mixin font-button {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+}
+
+@mixin font-body {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 400;
+}
+
+@mixin font-caption {
+    font-size: 1.3rem;
+    line-height: 2rem;
+    font-weight: 400;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: $primary-font;
+
+    /* opcional */
+    /* stylelint-disable-next-line property-no-unknown */
+    font-smooth: always;
+
+    /* opcional */
+    -webkit-font-smoothing: antialiased;
+
+    /* opcional */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// * {
+//     font-family: $primary-font;
+// }
+
+h1 {
+    @include font-x-large;
+
+    font-style: inherit;
+}
+
+h2 {
+    @include font-large;
+
+    font-style: inherit;
+}
+
+h3 {
+    @include font-medium;
+
+    font-style: inherit;
+}
+
+p,
+a {
+    @include font-small;
+
+    font-style: inherit;
+}
+
+button,
+input[type="submit"] {
+    @include font-button;
+}
+
+h4,
+h5,
+h6,
+span,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+    font-weight: inherit;
+    font-style: inherit;
+}
+
+form,
+input,
+textarea,
+select,
+button,
+label {
+    font-family: inherit;
+    font-size: inherit;
+}

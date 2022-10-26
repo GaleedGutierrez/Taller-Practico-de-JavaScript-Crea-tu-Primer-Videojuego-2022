@@ -1,0 +1,9 @@
+/* Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        /* stylelint-disable-next-line declaration-no-important */
+        animation: none !important;
+        /* stylelint-disable-next-line declaration-no-important */
+        transition: none !important;
+    }
+}

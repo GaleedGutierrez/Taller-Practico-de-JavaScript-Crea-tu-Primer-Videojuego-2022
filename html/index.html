@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css"/>
+    <title>Platziv - Juego Online</title>
+  </head>
+  <body>
+    <main class="main">
+      <canvas class="main__game-container" id="main__game-container-id"></canvas>
+      <section class="main__buttons-container">
+        <button class="button main__button-left" id="main__button-left-id">⇐</button>
+        <button class="button main__button-up" id="main__button-up-id">⇑</button>
+        <button class="button main__button-right" id="main__button-right-id">⇒</button>
+        <button class="button main__button-down" id="main__button-down-id">⇓</button>
+      </section>
+      <section class="main__info-game">
+        <p class="info-game__data info-game__life">Vidas: ❤️❤️❤️</p>
+        <p class="info-game__data info-game__time">Tiempo: 🕒0001</p>
+        <p class="info-game__data info-game__record">Record: 🏁00001</p>
+      </section>
+    </main>
+    <script type="module" src="../dist/game.js"></script>
+  </body>
+</html>
