@@ -27,7 +27,7 @@ export const EMOJIS = {
     'LIFE'           : '❤️'
 };
 
-const MAPS = [];
+const MAPS: string[] = [];
 
 MAPS.push(`
     IXXXXXXXXX
@@ -65,3 +65,18 @@ MAPS.push(`
     XX-----OXX
     XXXXXXXXXX
   `);
+MAPS.push(`
+    XXXXX----I
+    XXXXX-XXXX
+    XX----XXXX
+    XX-XXXXXXX
+    ------XXXX
+    -XXXXX-XXX
+    -------XXX
+    X-XXXXXXXX
+    X-----OXXX
+    XXXXXXXXXX
+  `);
+
+
+export const MAPS_USE = MAPS.map(map => map.trim().replaceAll(' ', ''));

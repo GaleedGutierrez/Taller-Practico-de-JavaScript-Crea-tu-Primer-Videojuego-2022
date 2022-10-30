@@ -1,4 +1,4 @@
-import { EMOJIS } from './maps.js';
+import { EMOJIS, MAPS_USE } from './maps.js';
 
 const startGame = (fontSize: number, elementSize: number) => {
     GAME.font = `${fontSize}px sans-serif`;
@@ -7,18 +7,25 @@ const startGame = (fontSize: number, elementSize: number) => {
     let yPositionEmoji = elementSize;
     let yCounterPositionEmoji = 1;
     let xCounterPositionEmoji = 0;
+    let yCharacterEmoji = 0;
+    const MAP = MAPS_USE[0].split('\n');
+    const MAP_EMOJIS = MAP.map(row => row.split(''));
 
     for (let i = 0; i < 100; i++) {
         if (i % 10 === 0 && i !== 0) {
             yCounterPositionEmoji++;
             yPositionEmoji = elementSize * yCounterPositionEmoji;
             xCounterPositionEmoji = 0;
+            yCharacterEmoji++;
         }
 
         const X = elementSize * xCounterPositionEmoji * 1.015;
         const Y = yPositionEmoji * 0.98;
+        const X_EMOJI = xCounterPositionEmoji;
+        const Y_EMOJI = yCharacterEmoji;
+        const EMOJI_DRAW = MAP_EMOJIS[Y_EMOJI][X_EMOJI];
 
-        GAME.fillText(EMOJIS['X'], X, Y);
+        GAME.fillText(EMOJIS[EMOJI_DRAW as keyof typeof EMOJIS], X, Y);
         xCounterPositionEmoji++;
     }
 
@@ -27,10 +34,10 @@ const startGame = (fontSize: number, elementSize: number) => {
 const setCanvasSize = () => {
     const WIDTH_WINDOWS = window.innerWidth;
     const HEIGHT_WINDOWS = window.innerHeight;
-    const IS_SMALLER_HEIGHT = WIDTH_WINDOWS < HEIGHT_WINDOWS && WIDTH_WINDOWS < 550;
+    const IS_WIDTH_SMALLER = WIDTH_WINDOWS < HEIGHT_WINDOWS && WIDTH_WINDOWS < 550;
     const WIDTH_BASE = window.innerWidth * 0.9;
     const HEIGHT_BASE = window.innerHeight * 0.6;
-    const SIDE_CANVAS = (IS_SMALLER_HEIGHT)
+    const SIDE_CANVAS = (IS_WIDTH_SMALLER)
         ? (WIDTH_BASE).toString()
         : (HEIGHT_BASE).toString();
 
