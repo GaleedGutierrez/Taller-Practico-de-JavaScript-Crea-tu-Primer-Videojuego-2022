@@ -1,32 +1,31 @@
-import { EMOJIS, MAPS_USE } from './maps.js';
+import {
+    EMOJIS,
+    MAPS_USE as MAP
+} from './maps.js';
 
 const startGame = (fontSize: number, elementSize: number) => {
     GAME.font = `${fontSize}px sans-serif`;
     GAME.textAlign = 'left';
 
-    let yPositionEmoji = elementSize;
-    let yCounterPositionEmoji = 1;
-    let xCounterPositionEmoji = 0;
-    let yCharacterEmoji = 0;
-    const MAP = MAPS_USE[0].split('\n');
-    const MAP_EMOJIS = MAP.map(row => row.split(''));
+    let yDraw = elementSize;
+    let xPositionEmoji = 0;
+    let yPositionEmoji = 0;
+    const MAP_EMOJIS = MAP[1]
+        .split('\n')
+        .map(row => row.split(''));
 
     for (let i = 0; i < 100; i++) {
         if (i % 10 === 0 && i !== 0) {
-            yCounterPositionEmoji++;
-            yPositionEmoji = elementSize * yCounterPositionEmoji;
-            xCounterPositionEmoji = 0;
-            yCharacterEmoji++;
+            yPositionEmoji++;
+            xPositionEmoji = 0;
+            yDraw = elementSize * (yPositionEmoji + 1) * 0.98;
         }
 
-        const X = elementSize * xCounterPositionEmoji * 1.015;
-        const Y = yPositionEmoji * 0.98;
-        const X_EMOJI = xCounterPositionEmoji;
-        const Y_EMOJI = yCharacterEmoji;
-        const EMOJI_DRAW = MAP_EMOJIS[Y_EMOJI][X_EMOJI];
+        const X_DRAW = elementSize * xPositionEmoji * 1.015;
+        const EMOJI_DRAW = MAP_EMOJIS[yPositionEmoji][xPositionEmoji] as keyof typeof EMOJIS;
 
-        GAME.fillText(EMOJIS[EMOJI_DRAW as keyof typeof EMOJIS], X, Y);
-        xCounterPositionEmoji++;
+        GAME.fillText(EMOJIS[EMOJI_DRAW], X_DRAW, yDraw);
+        xPositionEmoji++;
     }
 
 };
