@@ -61,4 +61,17 @@ MAPS.push(`
     XX-----OXX
     XXXXXXXXXX
   `);
+MAPS.push(`
+    XXXXX----I
+    XXXXX-XXXX
+    XX----XXXX
+    XX-XXXXXXX
+    ------XXXX
+    -XXXXX-XXX
+    -------XXX
+    X-XXXXXXXX
+    X-----OXXX
+    XXXXXXXXXX
+  `);
+export const MAPS_USE = MAPS.map(map => map.trim().replaceAll(' ', ''));
 //# sourceMappingURL=maps.js.map
