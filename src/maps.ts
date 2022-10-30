@@ -3,30 +3,6 @@
  * El final de cada nivel debe ser el inicio del siguiente
 */
 
-// export const EMOJIS = {
-//     '-'              : ' ',
-//     'O'              : '🚪',
-//     'X'              : '💣',
-//     'I'              : '🎁',
-//     'PLAYER'         : '💀',
-//     'BOMB_COLLISION' : '🔥',
-//     'GAME_OVER'      : '👎',
-//     'WIN'            : '🏆',
-//     'LIFE'           : '❤️'
-// };
-
-export const EMOJIS = {
-    '-'              : ' ',
-    'O'              : '💻',
-    'X'              : '👾',
-    'I'              : '✅',
-    'PLAYER'         : '👨‍💻',
-    'BOMB_COLLISION' : '💥',
-    'GAME_OVER'      : '👎',
-    'WIN'            : '🏆',
-    'LIFE'           : '❤️'
-};
-
 const MAPS: string[] = [];
 
 MAPS.push(`
@@ -78,5 +54,16 @@ MAPS.push(`
     XXXXXXXXXX
   `);
 
+export const EMOJIS = {
+    '-'              : ' ',
+    'O'              : '🏢',
+    'X'              : '👾',
+    'I'              : '✅',
+    'PLAYER'         : '👨‍💻',
+    'BOMB_COLLISION' : '💥',
+    'GAME_OVER'      : '👎',
+    'WIN'            : '🏆',
+    'LIFE'           : '❤️'
+};
 
 export const MAPS_USE = MAPS.map(map => map.trim().replaceAll(' ', ''));
