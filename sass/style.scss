@@ -11,6 +11,12 @@
 //     margin-inline: auto;
 // }
 
+.main__canvas-and-info-game-container {
+    width: fit-content;
+    margin-block: 1.2rem 2rem;
+    margin-inline: auto;
+}
+
 .main__game-container {
     display: flex;
     flex-wrap: wrap;
@@ -20,8 +26,6 @@
     padding-inline: 0.4rem;
     box-sizing: border-box;
     border-radius: 2rem;
-    margin-block: 1.2rem 0;
-    margin-inline: auto;
     background-color: $greyish-white;
     box-shadow: 0 0.6rem 1rem rgb(29 29 30 / 50%); // color: $black
 }
@@ -35,7 +39,6 @@
     grid-template-columns: repeat(3, 7.2rem);
     grid-template-rows: repeat(2, 6.6rem);
     place-content: center;
-    margin-block: 2rem;
 }
 
 .button {
@@ -68,7 +71,7 @@
 }
 
 .main__info-game {
-    margin-inline-start: 2.2rem;
+    margin-block-start: 2rem;
 }
 
 .info-game__data {
@@ -76,6 +79,7 @@
     padding-block: 0.4rem;
     padding-inline: 0.8rem;
     border-radius: 0.5rem;
+    margin-inline-start: auto;
     font-weight: bold;
 }
 

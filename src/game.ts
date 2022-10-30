@@ -3,7 +3,10 @@ import {
     MAPS_USE as MAP
 } from './maps.js';
 
-const startGame = (fontSize: number, elementSize: number) => {
+type buttonsClicked = 'main__button-left-id' | 'main__button-up-id' | 'main__button-right-id' | 'main__button-down-id';
+type keyPressType = 'ArrowLeft' | 'ArrowUp' | 'ArrowRight' | 'ArrowDown';
+
+const startGame = () => {
     GAME.font = `${fontSize}px sans-serif`;
     GAME.textAlign = 'left';
 
@@ -43,14 +46,61 @@ const setCanvasSize = () => {
     CANVAS.setAttribute('width', SIDE_CANVAS);
     CANVAS.setAttribute('height', SIDE_CANVAS);
 
-    const ELEMENT_SIZE = Number(SIDE_CANVAS) / 10.25;
-    const FONT_SIZE = ELEMENT_SIZE * 0.82;
+    elementSize = Number(SIDE_CANVAS) / 10.25;
+    fontSize = elementSize * 0.82;
 
-    startGame(FONT_SIZE, ELEMENT_SIZE);
+    startGame();
+};
+
+const moveCharacterWithKeys = (event: KeyboardEvent) => {
+    const KEY_PRESS = event.code as keyPressType;
+
+    if (!KEYS[KEY_PRESS]) return;
+
+    console.log(KEYS[KEY_PRESS]);
+};
+
+const moveCharacterWithButtons = (event: MouseEvent) => {
+    const BUTTON_CLICKED = event.target as HTMLButtonElement;
+    const BUTTON_ID = BUTTON_CLICKED.id as buttonsClicked;
+
+    console.log(BUTTONS[BUTTON_ID]);
+};
+
+const initialPositionCharacter = () => {
+    const PLAYER = EMOJIS['PLAYER'];
+
+    GAME.fillText(PLAYER, 0, elementSize);
 };
 
 const CANVAS = document.querySelector('#main__game-container-id') as HTMLCanvasElement;
 const GAME = CANVAS.getContext('2d') as CanvasRenderingContext2D;
+let elementSize = 0;
+let fontSize = 0;
+const BUTTON_LEFT = document.querySelector('#main__button-left-id') as HTMLButtonElement;
+const BUTTON_UP = document.querySelector('#main__button-up-id') as HTMLButtonElement;
+const BUTTON_RIGHT = document.querySelector('#main__button-right-id') as HTMLButtonElement;
+const BUTTON_DOWN = document.querySelector('#main__button-down-id') as HTMLButtonElement;
+const KEYS = {
+    ArrowLeft  : 'LEFT',
+    ArrowUp    : 'UP',
+    ArrowRight : 'RIGHT',
+    ArrowDown  : 'DOWN',
+};
+const BUTTONS = {
+    'main__button-left-id'  : 'LEFT',
+    'main__button-up-id'    : 'UP',
+    'main__button-right-id' : 'RIGHT',
+    'main__button-down-id'  : 'DOWN',
+};
+
+const BUTTONS_MOVE = [ BUTTON_LEFT, BUTTON_UP, BUTTON_RIGHT, BUTTON_DOWN ];
+
+for (let i = 0; i < BUTTONS_MOVE.length; i++) {
+    BUTTONS_MOVE[i].addEventListener('click', moveCharacterWithButtons);
+}
 
 window.addEventListener('load', setCanvasSize);
+window.addEventListener('load', initialPositionCharacter);
 window.addEventListener('resize', setCanvasSize);
+window.addEventListener('keyup', moveCharacterWithKeys);
