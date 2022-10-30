@@ -8,7 +8,13 @@ block head
     +titles("Platziv - Juego Online")
 block main
     main.main
-        canvas#main__game-container-id.main__game-container
+        section.main__canvas-and-info-game-container
+            canvas#main__game-container-id.main__game-container
+
+            section#main__info-game-id.main__info-game
+                p.info-game__data.info-game__life Vidas: ❤️❤️❤️
+                p.info-game__data.info-game__time Tiempo: 🕒0001
+                p.info-game__data.info-game__record Record: 🏁00001
 
         section.main__buttons-container
             button#main__button-left-id.button.main__button-left ⇐
@@ -16,10 +22,6 @@ block main
             button#main__button-right-id.button.main__button-right ⇒
             button#main__button-down-id.button.main__button-down ⇓
 
-        section.main__info-game
-            p.info-game__data.info-game__life Vidas: ❤️❤️❤️
-            p.info-game__data.info-game__time Tiempo: 🕒0001
-            p.info-game__data.info-game__record Record: 🏁00001
 block scripts
     script(type="module" src="../dist/game.js")
 

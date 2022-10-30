@@ -18,6 +18,7 @@
     "plugins": [
         "@typescript-eslint"
     ],
+    "root": true,
     "rules": {
         "semi": ["error", "always"],
         "space-before-function-paren": ["error", "always"],
@@ -92,6 +93,7 @@
         "space-in-parens": ["error", "never"],
         "func-call-spacing": ["error", "never"],
         "quote-props": ["error", "consistent-as-needed"],
+        "@typescript-eslint/type-annotation-spacing": "error",
         "@typescript-eslint/no-non-null-assertion": "warn"
     }
 }
