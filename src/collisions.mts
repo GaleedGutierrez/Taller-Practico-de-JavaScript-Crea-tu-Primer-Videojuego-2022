@@ -1,5 +1,14 @@
 import { bugs, newLevel, restartGame } from './drawMap.mjs';
-import { PLAYER, TARGET } from './game.js';
+import { PLAYER, showLives, TARGET } from './game.js';
+
+const levelFail = () => {
+	PLAYER.initialState = true;
+	PLAYER.lives--;
+
+	if (PLAYER.lives === 0) restartGame();
+
+	showLives();
+};
 
 export const collisionWithBugs = () => {
 	const COLLISION_WITH_BUG = bugs.some(bug => {
@@ -11,11 +20,7 @@ export const collisionWithBugs = () => {
 
 	if (!COLLISION_WITH_BUG) return;
 
-
-	PLAYER.initialState = true;
-	PLAYER.lives--;
-
-	if (PLAYER.lives <= 0) restartGame();
+	levelFail();
 };
 
 
@@ -30,3 +35,5 @@ export const collisionWithTarget = () => {
 	PLAYER.initialState = true;
 	newLevel();
 };
+
+

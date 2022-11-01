@@ -1,8 +1,17 @@
 import { elementSize, drawMap, sideCanvas } from './drawMap.mjs';
 import { EMOJIS } from './maps.mjs';
 import { buttonsClickedType, keyPressType } from './types.mjs';
-import { BUTTON_DOWN, BUTTON_LEFT, BUTTON_RIGHT, BUTTON_UP } from './elementHtml.mjs';
+import { BUTTON_DOWN, BUTTON_LEFT, BUTTON_RIGHT, BUTTON_UP, PLAYER_LIVES } from './elementHtml.mjs';
 import { collisionWithBugs, collisionWithTarget } from './collisions.mjs';
+
+export const showLives = () => {
+	// PLAYER_LIVES.innerText = EMOJIS['LIFE'].repeat(PLAYER.lives);
+
+	const HEARTS = Array(PLAYER.lives).fill(EMOJIS['LIFE']);
+
+	PLAYER_LIVES.innerText = '';
+	HEARTS.forEach(heart => PLAYER_LIVES.append(heart));
+};
 
 const movePlaterLeft = () => {
 	PLAYER.positionX -= elementSize;
@@ -96,3 +105,5 @@ for (let i = 0; i < BUTTONS_MOVE.length; i++) {
 }
 
 window.addEventListener('keyup', movePlayerWithKeys);
+
+showLives();
