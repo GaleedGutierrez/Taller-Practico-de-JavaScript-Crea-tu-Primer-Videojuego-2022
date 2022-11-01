@@ -2,17 +2,12 @@ import { elementSize, drawMap, sideCanvas, BUGS } from './drawMap.js';
 import { EMOJIS } from './maps.js';
 import { BUTTON_DOWN, BUTTON_LEFT, BUTTON_RIGHT, BUTTON_UP } from './elementHtml.js';
 const collisionWithBugs = () => {
-    let collisionWithBug = false;
-    for (let i = 0; i < BUGS.length; i++) {
-        const X_BUG = BUGS[i][0];
-        const Y_BUG = BUGS[i][1];
-        collisionWithBug = X_BUG === Math.ceil(PLAYER.positionX) && Y_BUG === Math.ceil(PLAYER.positionY);
-        if (collisionWithBug)
-            break;
-    }
-    if (!collisionWithBug)
-        return;
-    console.log('BUG!!!');
+    const COLLISION_WITH_BUG = BUGS.some(bug => {
+        const COLLISION_WITH_BUG_X = bug.positionX === Math.ceil(PLAYER.positionX);
+        const COLLISION_WITH_BUG_Y = bug.positionY === Math.ceil(PLAYER.positionY);
+        return COLLISION_WITH_BUG_X && COLLISION_WITH_BUG_Y;
+    });
+    return COLLISION_WITH_BUG;
 };
 const collisionWithTarget = () => {
     const TARGET_COLLISION_X = Math.ceil(PLAYER.positionX) === Math.ceil(TARGET.positionX);
@@ -29,8 +24,10 @@ const movePlaterDown = () => PLAYER.positionY += elementSize;
 const commonStatementsKeysAndButtons = () => {
     if (PLAYER.initialState)
         PLAYER.initialState = false;
+    // if (collisionWithBugs()) return;
     collisionWithTarget();
     collisionWithBugs();
+    console.log(collisionWithBugs());
     drawMap();
 };
 const movePlayerWithKeys = (event) => {

@@ -4,31 +4,24 @@ import { buttonsClickedType, keyPressType } from './types.js';
 import { BUTTON_DOWN, BUTTON_LEFT, BUTTON_RIGHT, BUTTON_UP } from './elementHtml.js';
 
 const collisionWithBugs = () => {
-    let collisionWithBug = false;
+	const COLLISION_WITH_BUG = BUGS.some(bug => {
+		const COLLISION_WITH_BUG_X = bug.positionX === Math.ceil(PLAYER.positionX);
+		const COLLISION_WITH_BUG_Y = bug.positionY === Math.ceil(PLAYER.positionY);
 
+		return COLLISION_WITH_BUG_X && COLLISION_WITH_BUG_Y;
+	});
 
-    for (let i = 0; i < BUGS.length; i++) {
-        const X_BUG = BUGS[i][0];
-        const Y_BUG = BUGS[i][1];
-
-        collisionWithBug = X_BUG === Math.ceil(PLAYER.positionX) && Y_BUG === Math.ceil(PLAYER.positionY);
-
-        if (collisionWithBug) break;
-    }
-
-    if (!collisionWithBug) return;
-
-    console.log('BUG!!!');
+	return COLLISION_WITH_BUG;
 };
 
 const collisionWithTarget = () => {
-    const TARGET_COLLISION_X = Math.ceil(PLAYER.positionX) === Math.ceil(TARGET.positionX);
-    const TARGET_COLLISION_Y = Math.ceil(PLAYER.positionY) === Math.ceil(TARGET.positionY);
-    const TARGET_COLLISION = TARGET_COLLISION_X && TARGET_COLLISION_Y;
+	const TARGET_COLLISION_X = Math.ceil(PLAYER.positionX) === Math.ceil(TARGET.positionX);
+	const TARGET_COLLISION_Y = Math.ceil(PLAYER.positionY) === Math.ceil(TARGET.positionY);
+	const TARGET_COLLISION = TARGET_COLLISION_X && TARGET_COLLISION_Y;
 
-    if (!TARGET_COLLISION) return;
+	if (!TARGET_COLLISION) return;
 
-    console.log('Choco');
+	console.log('Choco');
 };
 
 const movePlaterLeft = () => PLAYER.positionX -= elementSize;
@@ -37,82 +30,85 @@ const movePlaterRight = () => PLAYER.positionX += elementSize;
 const movePlaterDown = () => PLAYER.positionY += elementSize;
 
 const commonStatementsKeysAndButtons = () => {
-    if (PLAYER.initialState) PLAYER.initialState = false;
+	if (PLAYER.initialState) PLAYER.initialState = false;
+	// if (collisionWithBugs()) return;
 
-    collisionWithTarget();
-    collisionWithBugs();
-    drawMap();
+	collisionWithTarget();
+	collisionWithBugs();
+	console.log(collisionWithBugs());
+	drawMap();
 };
 
 const movePlayerWithKeys = (event: KeyboardEvent) => {
-    const KEY_PRESS = event.code as keyPressType;
+	const KEY_PRESS = event.code as keyPressType;
 
-    if (!KEYS[KEY_PRESS]) return;
 
-    if (KEY_PRESS === 'ArrowLeft' && PLAYER.positionX * 1.13 > 0)
-        KEYS[KEY_PRESS]();
+	if (!KEYS[KEY_PRESS]) return;
 
-    if (KEY_PRESS === 'ArrowUp' && PLAYER.positionY * 0.02 > 1)
-        KEYS[KEY_PRESS]();
+	if (KEY_PRESS === 'ArrowLeft' && PLAYER.positionX * 1.13 > 0)
+		KEYS[KEY_PRESS]();
 
-    if (KEY_PRESS === 'ArrowRight' && PLAYER.positionX * 1.13 < Number(sideCanvas))
-        KEYS[KEY_PRESS]();
+	if (KEY_PRESS === 'ArrowUp' && PLAYER.positionY * 0.02 > 1)
+		KEYS[KEY_PRESS]();
 
-    if (KEY_PRESS === 'ArrowDown' && PLAYER.positionY * 1.13 < Number(sideCanvas))
-        KEYS[KEY_PRESS]();
+	if (KEY_PRESS === 'ArrowRight' && PLAYER.positionX * 1.13 < Number(sideCanvas))
+		KEYS[KEY_PRESS]();
 
-    commonStatementsKeysAndButtons();
+	if (KEY_PRESS === 'ArrowDown' && PLAYER.positionY * 1.13 < Number(sideCanvas))
+		KEYS[KEY_PRESS]();
+
+	commonStatementsKeysAndButtons();
 };
 
 const movePlayerWithButtons = (event: MouseEvent) => {
-    const BUTTON_CLICKED = event.target as HTMLButtonElement;
-    const BUTTON_ID = BUTTON_CLICKED.id as buttonsClickedType;
+	const BUTTON_CLICKED = event.target as HTMLButtonElement;
+	const BUTTON_ID = BUTTON_CLICKED.id as buttonsClickedType;
 
-    if (BUTTON_ID === 'main__button-left-id' && PLAYER.positionX > 0)
-        BUTTONS[BUTTON_ID]();
+	if (BUTTON_ID === 'main__button-left-id' && PLAYER.positionX > 0)
+		BUTTONS[BUTTON_ID]();
 
-    if (BUTTON_ID === 'main__button-up-id' && PLAYER.positionY * 0.02 > 1)
-        BUTTONS[BUTTON_ID]();
+	if (BUTTON_ID === 'main__button-up-id' && PLAYER.positionY * 0.02 > 1)
+		BUTTONS[BUTTON_ID]();
 
-    if (BUTTON_ID === 'main__button-right-id' && PLAYER.positionX * 1.13 < Number(sideCanvas))
-        BUTTONS[BUTTON_ID]();
+	if (BUTTON_ID === 'main__button-right-id' && PLAYER.positionX * 1.13 < Number(sideCanvas))
+		BUTTONS[BUTTON_ID]();
 
-    if (BUTTON_ID === 'main__button-down-id' && PLAYER.positionY * 1.13 < Number(sideCanvas))
-        BUTTONS[BUTTON_ID]();
+	if (BUTTON_ID === 'main__button-down-id' && PLAYER.positionY * 1.13 < Number(sideCanvas))
+		BUTTONS[BUTTON_ID]();
 
-    commonStatementsKeysAndButtons();
+	commonStatementsKeysAndButtons();
 };
 
 const BUTTONS = {
-    'main__button-left-id'  : movePlaterLeft,
-    'main__button-up-id'    : movePlaterUp,
-    'main__button-right-id' : movePlaterRight,
-    'main__button-down-id'  : movePlaterDown,
+	'main__button-left-id'  : movePlaterLeft,
+	'main__button-up-id'    : movePlaterUp,
+	'main__button-right-id' : movePlaterRight,
+	'main__button-down-id'  : movePlaterDown,
 };
 
 const KEYS = {
-    ArrowLeft  : movePlaterLeft,
-    ArrowUp    : movePlaterUp,
-    ArrowRight : movePlaterRight,
-    ArrowDown  : movePlaterDown,
+	ArrowLeft  : movePlaterLeft,
+	ArrowUp    : movePlaterUp,
+	ArrowRight : movePlaterRight,
+	ArrowDown  : movePlaterDown,
 };
 
 const BUTTONS_MOVE = [ BUTTON_LEFT, BUTTON_UP, BUTTON_RIGHT, BUTTON_DOWN ];
 
 export const PLAYER = {
-    avatar       : EMOJIS['PLAYER'],
-    positionX    : 0,
-    positionY    : 0,
-    initialState : true,
+	avatar       : EMOJIS['PLAYER'],
+	positionX    : 0,
+	positionY    : 0,
+	initialState : true,
 };
 
 export const TARGET = {
-    positionX : 0,
-    positionY : 0,
+	positionX : 0,
+	positionY : 0,
 };
 
 for (let i = 0; i < BUTTONS_MOVE.length; i++) {
-    BUTTONS_MOVE[i].addEventListener('click', movePlayerWithButtons);
+	BUTTONS_MOVE[i].addEventListener('click', movePlayerWithButtons);
 }
 
 window.addEventListener('keyup', movePlayerWithKeys);

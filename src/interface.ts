@@ -1,5 +1,10 @@
 export interface InterfacePlayer {
-    avatar: string;
-    positionX: unknown | number;
-    positionY: unknown | number;
+	avatar: string;
+	positionX: number;
+	positionY: number;
+}
+
+export interface InterfaceBugs {
+	positionX: number;
+	positionY: number;
 }

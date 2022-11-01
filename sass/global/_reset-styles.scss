@@ -1,16 +1,16 @@
 @import "./normalize";
 
 * {
-    padding: 0;
-    border: 0;
-    margin: 0;
-    box-sizing: border-box;
-    outline: none;
-    vertical-align: baseline;
+	padding: 0;
+	border: 0;
+	margin: 0;
+	box-sizing: border-box;
+	outline: none;
+	vertical-align: baseline;
 }
 
 html {
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 // Opcional
@@ -24,35 +24,35 @@ picture,
 video,
 iframe,
 figure {
-    display: block;
-    width: 100%;
-    max-width: 100%;
+	display: block;
+	width: 100%;
+	max-width: 100%;
 
-    // /* opcional */ object-fit: cover;
-    // /* opcional */ object-position: center center;
+	// /* opcional */ object-fit: cover;
+	// /* opcional */ object-position: center center;
 }
 
 /* Evitamos problemas con los SVG */
 svg {
-    display: block;
-    width: 100%;
-    fill: currentcolor;
+	display: block;
+	width: 100%;
+	fill: currentcolor;
 }
 
 /* Reseteamos los enlaces para funcionar como cajas... */
 a {
-    display: block;
-    text-decoration: none;
+	display: block;
+	text-decoration: none;
 }
 
 /* ... excepto los que se encuentran en párrafos */
 p a {
-    display: inline;
+	display: inline;
 }
 
 /* Quitamos los puntos de los <li> */
 li {
-    list-style-type: none;
+	list-style-type: none;
 }
 
 /* Desactivamos estilos por defecto de las principales etiquetas de texto */
@@ -70,7 +70,7 @@ i,
 b,
 u,
 em {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 /* Evitamos problemas con los pseudoelementos de quotes */
@@ -78,8 +78,8 @@ blockquote::before,
 blockquote::after,
 q::before,
 q::after {
-    content: "";
-    content: none;
+	content: "";
+	content: none;
 }
 
 /* Nivelamos problemas de tipografías y colocación de formularios */
@@ -89,18 +89,18 @@ textarea,
 select,
 button,
 label {
-    display: block;
-    hyphens: auto;
+	display: block;
+	hyphens: auto;
 
-    //   /* opcional */ appearance: none;
+	//   /* opcional */ appearance: none;
 }
 
 /* Reseteamos las tablas */
 table,
 tr,
 td {
-    border-collapse: collapse;
-    border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 // .inactive or .hidden {
