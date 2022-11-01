@@ -1,12 +1,48 @@
-import { elementSize, drawMap, sideCanvas } from './drawMap.js';
+import { elementSize, drawMap, sideCanvas, BUGS } from './drawMap.js';
 import { EMOJIS } from './maps.js';
 import { buttonsClickedType, keyPressType } from './types.js';
 import { BUTTON_DOWN, BUTTON_LEFT, BUTTON_RIGHT, BUTTON_UP } from './elementHtml.js';
 
-const movePlaterLeft = () => PLAYER.positionX -= elementSize * 1.015;
-const movePlaterUp = () => PLAYER.positionY -= elementSize * 0.98;
-const movePlaterRight = () => PLAYER.positionX += elementSize * 1.015;
-const movePlaterDown = () => PLAYER.positionY += elementSize * 0.98;
+const collisionWithBugs = () => {
+    let collisionWithBug = false;
+
+
+    for (let i = 0; i < BUGS.length; i++) {
+        const X_BUG = BUGS[i][0];
+        const Y_BUG = BUGS[i][1];
+
+        collisionWithBug = X_BUG === Math.ceil(PLAYER.positionX) && Y_BUG === Math.ceil(PLAYER.positionY);
+
+        if (collisionWithBug) break;
+    }
+
+    if (!collisionWithBug) return;
+
+    console.log('BUG!!!');
+};
+
+const collisionWithTarget = () => {
+    const TARGET_COLLISION_X = Math.ceil(PLAYER.positionX) === Math.ceil(TARGET.positionX);
+    const TARGET_COLLISION_Y = Math.ceil(PLAYER.positionY) === Math.ceil(TARGET.positionY);
+    const TARGET_COLLISION = TARGET_COLLISION_X && TARGET_COLLISION_Y;
+
+    if (!TARGET_COLLISION) return;
+
+    console.log('Choco');
+};
+
+const movePlaterLeft = () => PLAYER.positionX -= elementSize;
+const movePlaterUp = () => PLAYER.positionY -= elementSize;
+const movePlaterRight = () => PLAYER.positionX += elementSize;
+const movePlaterDown = () => PLAYER.positionY += elementSize;
+
+const commonStatementsKeysAndButtons = () => {
+    if (PLAYER.initialState) PLAYER.initialState = false;
+
+    collisionWithTarget();
+    collisionWithBugs();
+    drawMap();
+};
 
 const movePlayerWithKeys = (event: KeyboardEvent) => {
     const KEY_PRESS = event.code as keyPressType;
@@ -25,8 +61,7 @@ const movePlayerWithKeys = (event: KeyboardEvent) => {
     if (KEY_PRESS === 'ArrowDown' && PLAYER.positionY * 1.13 < Number(sideCanvas))
         KEYS[KEY_PRESS]();
 
-    PLAYER.initialState = false;
-    drawMap();
+    commonStatementsKeysAndButtons();
 };
 
 const movePlayerWithButtons = (event: MouseEvent) => {
@@ -45,8 +80,7 @@ const movePlayerWithButtons = (event: MouseEvent) => {
     if (BUTTON_ID === 'main__button-down-id' && PLAYER.positionY * 1.13 < Number(sideCanvas))
         BUTTONS[BUTTON_ID]();
 
-    PLAYER.initialState = false;
-    drawMap();
+    commonStatementsKeysAndButtons();
 };
 
 const BUTTONS = {
@@ -70,6 +104,11 @@ export const PLAYER = {
     positionX    : 0,
     positionY    : 0,
     initialState : true,
+};
+
+export const TARGET = {
+    positionX : 0,
+    positionY : 0,
 };
 
 for (let i = 0; i < BUTTONS_MOVE.length; i++) {

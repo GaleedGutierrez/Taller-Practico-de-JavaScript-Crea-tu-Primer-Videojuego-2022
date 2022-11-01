@@ -1,5 +1,5 @@
 import { CANVAS } from './elementHtml.js';
-import { PLAYER } from './game.js';
+import { PLAYER, TARGET } from './game.js';
 import { EMOJIS, MAPS_USE as MAP } from './maps.js';
 const movePlayer = () => {
     GAME.fillText(PLAYER.avatar, PLAYER.positionX, PLAYER.positionY);
@@ -19,11 +19,13 @@ export const drawMap = () => {
         if (i % 10 === 0 && i !== 0) {
             yPositionEmoji++;
             xPositionEmoji = 0;
-            yDraw = elementSize * (yPositionEmoji + 1) * 0.98;
+            yDraw = elementSize * (yPositionEmoji + 1);
         }
-        xDraw = elementSize * xPositionEmoji * 1.015;
+        xDraw = elementSize * xPositionEmoji;
         const EMOJI_DRAW = MAP_EMOJIS[yPositionEmoji][xPositionEmoji];
         const IS_O = EMOJI_DRAW === 'O';
+        const IS_I = EMOJI_DRAW === 'I';
+        const IS_BUG = EMOJI_DRAW === 'X';
         GAME.fillText(EMOJIS[EMOJI_DRAW], xDraw, yDraw);
         if (IS_O)
             GAME.fillText(EMOJIS[EMOJI_DRAW], xDraw, yDraw);
@@ -31,6 +33,12 @@ export const drawMap = () => {
             PLAYER.positionX = xDraw;
             PLAYER.positionY = yDraw;
         }
+        if (IS_I) {
+            TARGET.positionX = xDraw;
+            TARGET.positionY = yDraw;
+        }
+        if (IS_BUG)
+            BUGS.push([Math.ceil(xDraw), Math.ceil(yDraw)]);
         xPositionEmoji++;
     }
     movePlayer();
@@ -52,6 +60,7 @@ const setCanvasSize = () => {
 };
 export let sideCanvas = '';
 export let elementSize = 0;
+export const BUGS = [];
 let fontSize = 0;
 const GAME = CANVAS.getContext('2d');
 window.addEventListener('load', setCanvasSize);

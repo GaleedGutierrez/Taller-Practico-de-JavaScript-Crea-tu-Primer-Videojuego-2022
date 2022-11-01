@@ -42,15 +42,15 @@ MAPS.push(`
     XXXXXXXXXX
   `);
 MAPS.push(`
-    XXXXX----I
+    O--------X
     XXXXX-XXXX
     XX----XXXX
-    XX-XXXXXXX
+    XX--XXXXXX
+    --------XX
+    -XXXX--XXX
     ------XXXX
-    -XXXXX-XXX
-    -------XXX
     X-XXXXXXXX
-    X-----OXXX
+    X-----IXXX
     XXXXXXXXXX
   `);
 
