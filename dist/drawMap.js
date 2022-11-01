@@ -37,8 +37,11 @@ export const drawMap = () => {
             TARGET.positionX = xDraw;
             TARGET.positionY = yDraw;
         }
-        if (IS_BUG)
-            BUGS.push([Math.ceil(xDraw), Math.ceil(yDraw)]);
+        if (IS_BUG && PLAYER.initialState)
+            BUGS.push({
+                positionX: Math.ceil(xDraw),
+                positionY: Math.ceil(yDraw)
+            });
         xPositionEmoji++;
     }
     movePlayer();

@@ -12,127 +12,127 @@
 // }
 
 .main__canvas-and-info-game-container {
-    width: fit-content;
-    margin-block: 1.2rem 2rem;
-    margin-inline: auto;
+	width: fit-content;
+	margin-block: 1.2rem 2rem;
+	margin-inline: auto;
 }
 
 .main__game-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding-block: 0.2rem 0.7rem;
-    padding-inline: 0.7rem 0.2rem;
-    box-sizing: border-box;
-    border-radius: 2rem;
-    background-color: $greyish-white;
-    box-shadow: 0 0.6rem 1rem rgb(29 29 30 / 50%); // color: $black
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding-block: 0.2rem 0.7rem;
+	padding-inline: 0.7rem 0.2rem;
+	box-sizing: border-box;
+	border-radius: 2rem;
+	background-color: $greyish-white;
+	box-shadow: 0 0.6rem 1rem rgb(29 29 30 / 50%); // color: $black
 }
 
 .main__buttons-container {
-    display: grid;
-    gap: 0.4rem;
-    grid-template:
-        ". up ."
-        "left down right";
-    grid-template-columns: repeat(3, 7.2rem);
-    grid-template-rows: repeat(2, 6.6rem);
-    place-content: center;
+	display: grid;
+	gap: 0.4rem;
+	grid-template:
+		". up ."
+		"left down right";
+	grid-template-columns: repeat(3, 7.2rem);
+	grid-template-rows: repeat(2, 6.6rem);
+	place-content: center;
 }
 
 .button {
-    border-radius: 2rem;
-    background-color: $cream-grey;
-    font-size: $font-x-large;
-    color: $white;
+	border-radius: 2rem;
+	background-color: $cream-grey;
+	font-size: $font-x-large;
+	color: $white;
 
-    &:active {
-        border: 0.4rem solid $cream-grey;
-        background-color: $white;
-        color: $black;
-    }
+	&:active {
+		border: 0.4rem solid $cream-grey;
+		background-color: $white;
+		color: $black;
+	}
 }
 
 .button.main__button-left {
-    grid-area: left;
+	grid-area: left;
 }
 
 .button.main__button-up {
-    grid-area: up;
+	grid-area: up;
 }
 
 .button.main__button-right {
-    grid-area: right;
+	grid-area: right;
 }
 
 .button.main__button-down {
-    grid-area: down;
+	grid-area: down;
 }
 
 .main__info-game {
-    margin-block-start: 2rem;
+	margin-block-start: 2rem;
 }
 
 .info-game__data {
-    width: fit-content;
-    padding-block: 0.4rem;
-    padding-inline: 0.8rem;
-    border-radius: 0.5rem;
-    margin-inline-start: auto;
-    font-weight: bold;
+	width: fit-content;
+	padding-block: 0.4rem;
+	padding-inline: 0.8rem;
+	border-radius: 0.5rem;
+	margin-inline-start: auto;
+	font-weight: bold;
 }
 
 .info-game__life {
-    background-color: $cream-green;
+	background-color: $cream-green;
 }
 
 .info-game__time {
-    margin-block: 0.8rem;
-    background-color: $cream-blue;
+	margin-block: 0.8rem;
+	background-color: $cream-blue;
 }
 
 .info-game__record {
-    background-color: $cream-orange;
+	background-color: $cream-orange;
 }
 
 @media (prefers-color-scheme: dark) {
-    body {
-        background-color: $black;
-    }
+	body {
+		background-color: $black;
+	}
 
-    .main__game-container {
-        background-color: $grey;
+	.main__game-container {
+		background-color: $grey;
 
-        // color $white
-        box-shadow: 0 0.6rem 1rem rgb(245 245 245 / 50%);
-    }
+		// color $white
+		box-shadow: 0 0.6rem 1rem rgb(245 245 245 / 50%);
+	}
 
-    .button {
-        background-color: $white;
-        color: $black;
+	.button {
+		background-color: $white;
+		color: $black;
 
-        &:active {
-            border: none;
-            background-color: $cream-grey;
-            color: $white;
-        }
-    }
+		&:active {
+			border: none;
+			background-color: $cream-grey;
+			color: $white;
+		}
+	}
 
-    .info-game__data {
-        color: $white;
-    }
+	.info-game__data {
+		color: $white;
+	}
 
-    .info-game__life {
-        background-color: $green;
-    }
+	.info-game__life {
+		background-color: $green;
+	}
 
-    .info-game__time {
-        margin-block: 0.8rem;
-        background-color: $blue;
-    }
+	.info-game__time {
+		margin-block: 0.8rem;
+		background-color: $blue;
+	}
 
-    .info-game__record {
-        background-color: $orange;
-    }
+	.info-game__record {
+		background-color: $orange;
+	}
 }

@@ -1,28 +1,28 @@
 extend ./components/global/_global.pug
 block head
-    - const SEE_HEADER = false
-    - const SEE_FOOTER = false
-    +style-head("style.css")
-    //- +style-head-responsive("homepage/tablet.css", "800")
-    //- +style-head-responsive("homepage/desktop.css", "1024")
-    +titles("Platziv - Juego Online")
+	- const SEE_HEADER = false
+	- const SEE_FOOTER = false
+	+style-head("style.css")
+	//- +style-head-responsive("homepage/tablet.css", "800")
+	//- +style-head-responsive("homepage/desktop.css", "1024")
+	+titles("Platziv - Juego Online")
 block main
-    main.main
-        section.main__canvas-and-info-game-container
-            canvas#main__game-container-id.main__game-container
+	main.main
+		section.main__canvas-and-info-game-container
+			canvas#main__game-container-id.main__game-container
 
-            section#main__info-game-id.main__info-game
-                p.info-game__data.info-game__life Vidas: ❤️❤️❤️
-                p.info-game__data.info-game__time Tiempo: 🕒0001
-                p.info-game__data.info-game__record Record: 🏁00001
+			section#main__info-game-id.main__info-game
+				p.info-game__data.info-game__life Vidas: ❤️❤️❤️
+				p.info-game__data.info-game__time Tiempo: 🕒0001
+				p.info-game__data.info-game__record Record: 🏁00001
 
-        section.main__buttons-container
-            button#main__button-left-id.button.main__button-left ⇐
-            button#main__button-up-id.button.main__button-up ⇑
-            button#main__button-right-id.button.main__button-right ⇒
-            button#main__button-down-id.button.main__button-down ⇓
+		section.main__buttons-container
+			button#main__button-left-id.button.main__button-left ⇐
+			button#main__button-up-id.button.main__button-up ⇑
+			button#main__button-right-id.button.main__button-right ⇒
+			button#main__button-down-id.button.main__button-down ⇓
 
 block scripts
-    script(async src="https://www.googletagmanager.com/gtag/js?id=G-M8H4YB694S")
-    script(src="../dist/googleAnalytics.js")
-    script(type="module" src="../dist/game.js")
+	script(async src="https://www.googletagmanager.com/gtag/js?id=G-M8H4YB694S")
+	script(src="../dist/googleAnalytics.js")
+	script(type="module" src="../dist/game.js")
