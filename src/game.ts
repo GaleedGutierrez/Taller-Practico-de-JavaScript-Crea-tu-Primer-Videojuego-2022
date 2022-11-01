@@ -1,57 +1,39 @@
-import { elementSize, drawMap, sideCanvas, BUGS } from './drawMap.js';
-import { EMOJIS } from './maps.js';
-import { buttonsClickedType, keyPressType } from './types.js';
-import { BUTTON_DOWN, BUTTON_LEFT, BUTTON_RIGHT, BUTTON_UP } from './elementHtml.js';
+import { elementSize, drawMap, sideCanvas } from './drawMap.mjs';
+import { EMOJIS } from './maps.mjs';
+import { buttonsClickedType, keyPressType } from './types.mjs';
+import { BUTTON_DOWN, BUTTON_LEFT, BUTTON_RIGHT, BUTTON_UP } from './elementHtml.mjs';
+import { collisionWithBugs, collisionWithTarget } from './collisions.mjs';
 
-const collisionWithBugs = () => {
-	const COLLISION_WITH_BUG = BUGS.some(bug => {
-		const COLLISION_WITH_BUG_X = bug.positionX === Math.ceil(PLAYER.positionX);
-		const COLLISION_WITH_BUG_Y = bug.positionY === Math.ceil(PLAYER.positionY);
+const movePlaterLeft = () => {
+	PLAYER.positionX -= elementSize;
 
-		return COLLISION_WITH_BUG_X && COLLISION_WITH_BUG_Y;
-	});
-
-	return COLLISION_WITH_BUG;
+	if (PLAYER.positionX < 1) PLAYER.positionX = 0;
 };
 
-const collisionWithTarget = () => {
-	const TARGET_COLLISION_X = Math.ceil(PLAYER.positionX) === Math.ceil(TARGET.positionX);
-	const TARGET_COLLISION_Y = Math.ceil(PLAYER.positionY) === Math.ceil(TARGET.positionY);
-	const TARGET_COLLISION = TARGET_COLLISION_X && TARGET_COLLISION_Y;
-
-	if (!TARGET_COLLISION) return;
-
-	console.log('Choco');
-};
-
-const movePlaterLeft = () => PLAYER.positionX -= elementSize;
 const movePlaterUp = () => PLAYER.positionY -= elementSize;
 const movePlaterRight = () => PLAYER.positionX += elementSize;
 const movePlaterDown = () => PLAYER.positionY += elementSize;
 
 const commonStatementsKeysAndButtons = () => {
 	if (PLAYER.initialState) PLAYER.initialState = false;
-	// if (collisionWithBugs()) return;
 
 	collisionWithTarget();
 	collisionWithBugs();
-	console.log(collisionWithBugs());
 	drawMap();
 };
 
 const movePlayerWithKeys = (event: KeyboardEvent) => {
 	const KEY_PRESS = event.code as keyPressType;
 
-
 	if (!KEYS[KEY_PRESS]) return;
 
-	if (KEY_PRESS === 'ArrowLeft' && PLAYER.positionX * 1.13 > 0)
+	if (KEY_PRESS === 'ArrowLeft' && PLAYER.positionX * 0.02 > 0.5)
 		KEYS[KEY_PRESS]();
 
 	if (KEY_PRESS === 'ArrowUp' && PLAYER.positionY * 0.02 > 1)
 		KEYS[KEY_PRESS]();
 
-	if (KEY_PRESS === 'ArrowRight' && PLAYER.positionX * 1.13 < Number(sideCanvas))
+	if (KEY_PRESS === 'ArrowRight' && PLAYER.positionX * 1.2 < Number(sideCanvas))
 		KEYS[KEY_PRESS]();
 
 	if (KEY_PRESS === 'ArrowDown' && PLAYER.positionY * 1.13 < Number(sideCanvas))

@@ -1,6 +1,20 @@
-import { CANVAS } from './elementHtml.js';
+import { CANVAS } from './elementHtml.mjs';
 import { PLAYER, TARGET } from './game.js';
-import { EMOJIS, MAPS_USE as MAP } from './maps.js';
+import { EMOJIS, MAPS_USE as MAP } from './maps.mjs';
+const gameWin = () => {
+    console.log('Ganasteeeee');
+};
+export const newLevel = () => {
+    if (level < MAP.length - 1) {
+        level++;
+        bugs = [];
+    }
+    if (level > MAP.length - 2) {
+        gameWin();
+        TARGET.positionX = -1;
+        TARGET.positionY = -1;
+    }
+};
 const movePlayer = () => {
     GAME.fillText(PLAYER.avatar, PLAYER.positionX, PLAYER.positionY);
 };
@@ -11,7 +25,7 @@ export const drawMap = () => {
     let xPositionEmoji = 0;
     let yPositionEmoji = 0;
     let xDraw = 0;
-    const MAP_EMOJIS = MAP[0]
+    const MAP_EMOJI = MAP[level]
         .split('\n')
         .map(row => row.split(''));
     GAME.clearRect(0, 0, Number(sideCanvas), Number(sideCanvas));
@@ -22,14 +36,14 @@ export const drawMap = () => {
             yDraw = elementSize * (yPositionEmoji + 1);
         }
         xDraw = elementSize * xPositionEmoji;
-        const EMOJI_DRAW = MAP_EMOJIS[yPositionEmoji][xPositionEmoji];
+        const EMOJI_DRAW = MAP_EMOJI[yPositionEmoji][xPositionEmoji];
         const IS_O = EMOJI_DRAW === 'O';
         const IS_I = EMOJI_DRAW === 'I';
         const IS_BUG = EMOJI_DRAW === 'X';
         GAME.fillText(EMOJIS[EMOJI_DRAW], xDraw, yDraw);
         if (IS_O)
             GAME.fillText(EMOJIS[EMOJI_DRAW], xDraw, yDraw);
-        if (IS_O && PLAYER.initialState) {
+        if (IS_O && PLAYER.initialState && level < MAP.length - 2) {
             PLAYER.positionX = xDraw;
             PLAYER.positionY = yDraw;
         }
@@ -38,7 +52,7 @@ export const drawMap = () => {
             TARGET.positionY = yDraw;
         }
         if (IS_BUG && PLAYER.initialState)
-            BUGS.push({
+            bugs.push({
                 positionX: Math.ceil(xDraw),
                 positionY: Math.ceil(yDraw)
             });
@@ -63,9 +77,10 @@ const setCanvasSize = () => {
 };
 export let sideCanvas = '';
 export let elementSize = 0;
-export const BUGS = [];
-let fontSize = 0;
+export let bugs = [];
 const GAME = CANVAS.getContext('2d');
+let fontSize = 0;
+export let level = 0;
 window.addEventListener('load', setCanvasSize);
 window.addEventListener('resize', setCanvasSize);
-//# sourceMappingURL=drawMap.js.map
+//# sourceMappingURL=drawMap.mjs.map

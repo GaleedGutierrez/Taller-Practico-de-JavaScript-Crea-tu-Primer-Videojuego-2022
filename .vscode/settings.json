@@ -31,7 +31,8 @@
         "Platziv",
         "pseudoelementos",
         "Reseteamos",
-        "stylelint"
+        "stylelint",
+        "XIXXXXXXXX"
     ],
 
     "stylelint.validate": ["scss"]
