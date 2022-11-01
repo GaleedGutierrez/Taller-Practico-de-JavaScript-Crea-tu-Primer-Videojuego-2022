@@ -43,15 +43,40 @@ MAPS.push(`
 `);
 MAPS.push(`
 	O--------X
-	XXXXX-XXXX
+	X-XXX-XXXX
 	XX----XXXX
-	XX--XXXXXX
-	--------XX
+	X---XXXX-X
+	---------X
 	-XXXX--XXX
-	------XXXX
-	X-XXXXXXXX
-	X-----IXXX
-	XXXXXXXXXX
+	X-----XXXX
+	X-XXX-X-XX
+	X-XXX-XXXX
+	XI---XX-XX
+`);
+MAPS.push(`
+	I-----XXXX
+	XXXXX---XX
+	XX---XX-XX
+	XX-X--X--X
+	XX--X--X-X
+	XXX-XX---X
+	XXX--XXXXX
+	XXXX-XXXXX
+	XXX--XXXXX
+	XO--XXXXXX
+`);
+// Win
+MAPS.push(`
+	OOOOOOOOOO
+	OOOOOOOOOO
+	OOOOOOOOOO
+	OOOOOOOOOO
+	OOOOOOOOOO
+	OOOOOOOOOO
+	OOOOOOOOOO
+	OOOOOOOOOO
+	OOOOOOOOOO
+	OOOOOOOOOO
 `);
 
 export const EMOJIS = {
