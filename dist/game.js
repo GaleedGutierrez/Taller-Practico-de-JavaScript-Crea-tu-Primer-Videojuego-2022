@@ -62,6 +62,8 @@ export const PLAYER = {
     positionX: 0,
     positionY: 0,
     initialState: true,
+    lives: 3,
+    level: 0
 };
 export const TARGET = {
     positionX: 0,

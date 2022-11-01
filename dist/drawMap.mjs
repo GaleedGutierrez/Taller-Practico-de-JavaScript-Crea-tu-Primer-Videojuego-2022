@@ -1,15 +1,20 @@
 import { CANVAS } from './elementHtml.mjs';
 import { PLAYER, TARGET } from './game.js';
 import { EMOJIS, MAPS_USE as MAP } from './maps.mjs';
+export const restartGame = () => {
+    PLAYER.lives = 3;
+    PLAYER.level = 0;
+    bugs = [];
+};
 const gameWin = () => {
     console.log('Ganasteeeee');
 };
 export const newLevel = () => {
-    if (level < MAP.length - 1) {
-        level++;
+    if (PLAYER.level < MAP.length - 1) {
+        PLAYER.level++;
         bugs = [];
     }
-    if (level > MAP.length - 2) {
+    if (PLAYER.level > MAP.length - 2) {
         gameWin();
         TARGET.positionX = -1;
         TARGET.positionY = -1;
@@ -25,7 +30,7 @@ export const drawMap = () => {
     let xPositionEmoji = 0;
     let yPositionEmoji = 0;
     let xDraw = 0;
-    const MAP_EMOJI = MAP[level]
+    const MAP_EMOJI = MAP[PLAYER.level]
         .split('\n')
         .map(row => row.split(''));
     GAME.clearRect(0, 0, Number(sideCanvas), Number(sideCanvas));
@@ -43,7 +48,7 @@ export const drawMap = () => {
         GAME.fillText(EMOJIS[EMOJI_DRAW], xDraw, yDraw);
         if (IS_O)
             GAME.fillText(EMOJIS[EMOJI_DRAW], xDraw, yDraw);
-        if (IS_O && PLAYER.initialState && level < MAP.length - 2) {
+        if (IS_O && PLAYER.initialState && PLAYER.level < MAP.length - 2) {
             PLAYER.positionX = xDraw;
             PLAYER.positionY = yDraw;
         }
@@ -80,7 +85,6 @@ export let elementSize = 0;
 export let bugs = [];
 const GAME = CANVAS.getContext('2d');
 let fontSize = 0;
-export let level = 0;
 window.addEventListener('load', setCanvasSize);
 window.addEventListener('resize', setCanvasSize);
 //# sourceMappingURL=drawMap.mjs.map
