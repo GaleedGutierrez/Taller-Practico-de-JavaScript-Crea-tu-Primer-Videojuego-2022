@@ -8,6 +8,13 @@ block head
 	+titles("Platziv - Juego Online")
 block main
 	main.main
+		div#main__start-display-id.main__start-display
+			h1.start-display__title.start-display__text Laberinto
+			p.start-display__subtitle.start-display__text Guía al programador a no encontrarse con bugs.
+			button#main__button-start-id.start-display__button-start Start
+		div#main__counter-container-id.main__counter-container.hidden
+			p#main__counter.main__counter 3
+
 		section.main__canvas-and-info-game-container
 			canvas#main__game-container-id.main__game-container
 

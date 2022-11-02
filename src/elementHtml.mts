@@ -6,3 +6,7 @@ export const BUTTON_DOWN = document.querySelector('#main__button-down-id') as HT
 export const LIVES = document.querySelector('#info-game__lives-id') as HTMLSpanElement;
 export const TIME = document.querySelector('#info-game__time-id') as HTMLSpanElement;
 export const RECORD = document.querySelector('#info-record-id') as HTMLSpanElement;
+export const START_DISPLAY = document.querySelector('#main__start-display-id') as HTMLDivElement;
+export const BUTTON_START = document.querySelector('#main__button-start-id') as HTMLButtonElement;
+export const COUNTER_START_CONTAINER = document.querySelector('#main__counter-container-id') as HTMLDivElement;
+export const COUNTER_START = document.querySelector('#main__counter') as HTMLParagraphElement;

@@ -1,0 +1,36 @@
+.main__canvas-and-info-game-container {
+	width: fit-content;
+	margin-block: 1.2rem 2rem;
+	margin-inline: auto;
+}
+
+.main__info-game {
+	margin-block-start: 2rem;
+}
+
+.info-game__data {
+	width: fit-content;
+	padding-block: 0.4rem;
+	padding-inline: 0.8rem;
+	border-radius: 0.5rem;
+	margin-inline-start: auto;
+	font-weight: bold;
+}
+
+.info-game__life {
+	background-color: $cream-green;
+}
+
+.info-game__time {
+	margin-block: 0.8rem;
+	background-color: $cream-blue;
+}
+
+.info-game__time-info {
+	display: inline-block;
+	width: 7rem;
+}
+
+.info-game__record {
+	background-color: $cream-orange;
+}
