@@ -10,4 +10,7 @@ export const START_DISPLAY = document.querySelector('#main__start-display-id');
 export const BUTTON_START = document.querySelector('#main__button-start-id');
 export const COUNTER_START_CONTAINER = document.querySelector('#main__counter-container-id');
 export const COUNTER_START = document.querySelector('#main__counter');
+export const CONTINUE_GAME_CARD = document.querySelector('#main__continue-game-id');
+export const YES_CONTINUE = document.querySelector('#continue-game__button-yes_id');
+export const NO_CONTINUE = document.querySelector('#continue-game__button-no_id');
 //# sourceMappingURL=elementHtml.mjs.map

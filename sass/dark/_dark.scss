@@ -17,6 +17,21 @@ body {
 	color: $black;
 }
 
+.main__continue-game {
+	background-color: $cream-grey;
+	color: $white;
+	box-shadow: 0 0.6rem 1rem rgb(245 245 245 / 50%); // color: $white
+}
+
+.continue-game__button {
+	background-color: $grey;
+
+	&:active {
+		background-color: $white;
+		color: $grey;
+	}
+}
+
 .main__game-container {
 	background-color: $grey;
 

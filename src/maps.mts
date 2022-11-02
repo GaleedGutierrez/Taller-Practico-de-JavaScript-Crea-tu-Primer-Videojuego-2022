@@ -67,16 +67,16 @@ MAPS.push(`
 `);
 // Win
 MAPS.push(`
-	OOOOOOOOOO
-	OOOOOOOOOO
-	OOOOOOOOOO
-	OOOOOOOOOO
-	OOOOOOOOOO
-	OOOOOOOOOO
-	OOOOOOOOOO
-	OOOOOOOOOO
-	OOOOOOOOOO
-	OOOOOOOOOO
+	IIIIIIIIII
+	IIIIIIIIII
+	IIIIIIIIII
+	IIIIIIIIII
+	IIIIIIIIII
+	IIIIIIIIII
+	IIIIIIIIII
+	IIIIIIIIII
+	IIIIIIIIII
+	IIIIIIIIII
 `);
 
 export const EMOJIS = {
@@ -88,7 +88,21 @@ export const EMOJIS = {
 	'BOMB_COLLISION' : '💥',
 	'GAME_OVER'      : '👎',
 	'WIN'            : '🏆',
-	'LIFE'           : '❤️'
+	'LIFE'           : '❤️',
+	'E'              : '❌'
 };
+
+export const MAP_ERROR = [
+	[ 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E' ],
+	[ 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E' ],
+	[ 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E' ],
+	[ 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E' ],
+	[ 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E' ],
+	[ 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E' ],
+	[ 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E' ],
+	[ 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E' ],
+	[ 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E' ],
+	[ 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E' ],
+];
 
 export const MAPS_USE = MAPS.map(map => map.trim().replaceAll(/\t/g, ''));

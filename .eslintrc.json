@@ -88,8 +88,8 @@
 			{ "blankLine": "any", "prev": "expression", "next": "expression" }, // veremos
 			{ "blankLine": "always", "prev": "import", "next": "*" },
 			{ "blankLine": "any", "prev": "import", "next": "import" },
-			{ "blankLine": "always", "prev": "export", "next": "*" },
-			{ "blankLine": "any", "prev": "export", "next": "export" }
+			{ "blankLine": "always", "prev": "export", "next": "*" }
+			// { "blankLine": "any", "prev": "export", "next": "export" }
 		],
 		"arrow-spacing": ["error", { "before": true, "after": true }],
 		"lines-between-class-members": ["error", "always"],
@@ -118,6 +118,7 @@
 		"quote-props": ["error", "consistent-as-needed"],
 		"@typescript-eslint/type-annotation-spacing": "error",
 		"@typescript-eslint/no-non-null-assertion": "warn",
-		"@typescript-eslint/indent": ["error", "tab", { "SwitchCase": 1 }]
+		"@typescript-eslint/indent": ["error", "tab", { "SwitchCase": 1 }],
+		"@typescript-eslint/consistent-type-definitions": "warn"
 	}
 }
