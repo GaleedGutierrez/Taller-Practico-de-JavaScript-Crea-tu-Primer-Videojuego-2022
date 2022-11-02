@@ -1,0 +1,18 @@
+.main__start-display,
+.main__counter-container,
+.main__continue-game {
+	@include all-center-with-display-flex;
+
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(163.96deg, $white 3.26%, rgb(95 97 100 / 10%) 95.59%);
+	text-align: center;
+	backdrop-filter: blur(20px);
+	transition-duration: 400ms;
+}
