@@ -1,21 +1,34 @@
 import { elementSize, drawMap, sideCanvas } from './drawMap.mjs';
 import { EMOJIS } from './maps.mjs';
-import { BUTTON_DOWN, BUTTON_LEFT, BUTTON_RIGHT, BUTTON_UP, PLAYER_LIVES } from './elementHtml.mjs';
+import { BUTTON_DOWN, BUTTON_LEFT, BUTTON_RIGHT, BUTTON_UP, LIVES, TIME } from './elementHtml.mjs';
 import { collisionWithBugs, collisionWithTarget } from './collisions.mjs';
-export const showLives = () => {
-    // PLAYER_LIVES.innerText = EMOJIS['LIFE'].repeat(PLAYER.lives);
-    const HEARTS = Array(PLAYER.lives).fill(EMOJIS['LIFE']);
-    PLAYER_LIVES.innerText = '';
-    HEARTS.forEach(heart => PLAYER_LIVES.append(heart));
+export const showTime = () => {
+    const CURRENT_TIME = Date.now() - PLAYER.timeStart;
+    const MILLISECONDS = Math.floor(CURRENT_TIME / 10) % 99;
+    const SECONDS = Math.floor(CURRENT_TIME / 1000) % 60;
+    const MINUTES = Math.floor(CURRENT_TIME / 1000 / 60) % 60;
+    const MILLISECONDS_TEXT = MILLISECONDS < 10
+        ? `0${MILLISECONDS}`
+        : `${MILLISECONDS}`;
+    const SECONDS_TEXT = SECONDS < 10
+        ? `0${SECONDS}`
+        : `${SECONDS}`;
+    const MINUTES_TEXT = MINUTES < 10
+        ? `0${MINUTES}`
+        : `${MINUTES}`;
+    TIME.innerText = `${MINUTES_TEXT}:${SECONDS_TEXT}:${MILLISECONDS_TEXT}`;
 };
-const movePlaterLeft = () => {
+export const showLives = () => {
+    LIVES.innerText = EMOJIS['LIFE'].repeat(PLAYER.lives);
+};
+const movePlayerLeft = () => {
     PLAYER.positionX -= elementSize;
     if (PLAYER.positionX < 1)
         PLAYER.positionX = 0;
 };
-const movePlaterUp = () => PLAYER.positionY -= elementSize;
-const movePlaterRight = () => PLAYER.positionX += elementSize;
-const movePlaterDown = () => PLAYER.positionY += elementSize;
+const movePlayerUp = () => PLAYER.positionY -= elementSize;
+const movePlayerRight = () => PLAYER.positionX += elementSize;
+const movePlayerDown = () => PLAYER.positionY += elementSize;
 const commonStatementsKeysAndButtons = () => {
     if (PLAYER.initialState)
         PLAYER.initialState = false;
@@ -51,16 +64,16 @@ const movePlayerWithButtons = (event) => {
     commonStatementsKeysAndButtons();
 };
 const BUTTONS = {
-    'main__button-left-id': movePlaterLeft,
-    'main__button-up-id': movePlaterUp,
-    'main__button-right-id': movePlaterRight,
-    'main__button-down-id': movePlaterDown,
+    'main__button-left-id': movePlayerLeft,
+    'main__button-up-id': movePlayerUp,
+    'main__button-right-id': movePlayerRight,
+    'main__button-down-id': movePlayerDown,
 };
 const KEYS = {
-    ArrowLeft: movePlaterLeft,
-    ArrowUp: movePlaterUp,
-    ArrowRight: movePlaterRight,
-    ArrowDown: movePlaterDown,
+    ArrowLeft: movePlayerLeft,
+    ArrowUp: movePlayerUp,
+    ArrowRight: movePlayerRight,
+    ArrowDown: movePlayerDown,
 };
 const BUTTONS_MOVE = [BUTTON_LEFT, BUTTON_UP, BUTTON_RIGHT, BUTTON_DOWN];
 export const PLAYER = {
@@ -69,7 +82,8 @@ export const PLAYER = {
     positionY: 0,
     initialState: true,
     lives: 3,
-    level: 0
+    level: 0,
+    timeStart: 0
 };
 export const TARGET = {
     positionX: 0,
