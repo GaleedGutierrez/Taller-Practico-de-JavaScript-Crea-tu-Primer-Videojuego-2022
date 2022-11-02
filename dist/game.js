@@ -1,6 +1,6 @@
-import { elementSize, drawMap, sideCanvas } from './drawMap.mjs';
+import { elementSize, drawMap, sideCanvas, setCanvasSize } from './drawMap.mjs';
 import { EMOJIS } from './maps.mjs';
-import { BUTTON_DOWN, BUTTON_LEFT, BUTTON_RIGHT, BUTTON_UP, LIVES, TIME } from './elementHtml.mjs';
+import { BUTTON_DOWN, BUTTON_LEFT, BUTTON_RIGHT, BUTTON_START, BUTTON_UP, COUNTER_START, COUNTER_START_CONTAINER, LIVES, START_DISPLAY, TIME } from './elementHtml.mjs';
 import { collisionWithBugs, collisionWithTarget } from './collisions.mjs';
 export const showTime = () => {
     const CURRENT_TIME = Date.now() - PLAYER.timeStart;
@@ -63,6 +63,20 @@ const movePlayerWithButtons = (event) => {
         BUTTONS[BUTTON_ID]();
     commonStatementsKeysAndButtons();
 };
+const stopATime = (time) => new Promise(resolve => setTimeout(resolve, time));
+const startCounter = async () => {
+    START_DISPLAY.classList.add('hidden');
+    COUNTER_START_CONTAINER.classList.toggle('hidden');
+    startGame = true;
+    while (counter > 0) {
+        COUNTER_START.innerText = counter.toString();
+        counter--;
+        await stopATime(850);
+    }
+    COUNTER_START_CONTAINER.classList.toggle('hidden');
+    if (counter === 0)
+        setCanvasSize();
+};
 const BUTTONS = {
     'main__button-left-id': movePlayerLeft,
     'main__button-up-id': movePlayerUp,
@@ -92,6 +106,9 @@ export const TARGET = {
 for (let i = 0; i < BUTTONS_MOVE.length; i++) {
     BUTTONS_MOVE[i].addEventListener('click', movePlayerWithButtons);
 }
+export let startGame = false;
+let counter = 3;
 window.addEventListener('keyup', movePlayerWithKeys);
+BUTTON_START.addEventListener('click', startCounter);
 showLives();
 //# sourceMappingURL=game.js.map

@@ -3,7 +3,6 @@ import { PLAYER, showLives, TARGET } from './game.js';
 const levelFail = () => {
     PLAYER.initialState = true;
     PLAYER.lives--;
-    // debugger;
     if (PLAYER.lives === 0)
         restartGame();
     showLives();
@@ -16,9 +15,6 @@ export const collisionWithBugs = () => {
     });
     if (!COLLISION_WITH_BUG)
         return;
-    // if (PLAYER.level === 4) {
-    // 	debugger;
-    // }
     levelFail();
 };
 export const collisionWithTarget = () => {

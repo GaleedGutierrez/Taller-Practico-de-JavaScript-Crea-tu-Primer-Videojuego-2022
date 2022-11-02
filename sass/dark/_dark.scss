@@ -1,0 +1,57 @@
+body {
+	background-color: $black;
+}
+
+.main__start-display,
+.main__counter-container {
+	background: linear-gradient(163.96deg, rgb(95 97 100 / 40%) 3.26%, rgb(95 97 100 / 10%) 95.59%);
+	color: $white;
+}
+
+.start-display__button-start {
+	background-color: $grey;
+}
+
+.start-display__button-start:active {
+	background-color: $white;
+	color: $black;
+}
+
+.main__game-container {
+	background-color: $grey;
+
+	// color $white
+	box-shadow: 0 0.6rem 1rem rgb(245 245 245 / 50%);
+}
+
+.button {
+	background-color: $white;
+	color: $black;
+
+	&:active {
+		border: none;
+		background-color: $cream-grey;
+		color: $white;
+	}
+}
+
+.main__counter {
+	background-color: $grey;
+}
+
+.info-game__data {
+	color: $white;
+}
+
+.info-game__life {
+	background-color: $green;
+}
+
+.info-game__time {
+	margin-block: 0.8rem;
+	background-color: $blue;
+}
+
+.info-game__record {
+	background-color: $orange;
+}

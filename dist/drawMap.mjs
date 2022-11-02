@@ -1,5 +1,5 @@
 import { CANVAS } from './elementHtml.mjs';
-import { PLAYER, showTime, TARGET } from './game.js';
+import { PLAYER, showTime, startGame, TARGET } from './game.js';
 import { EMOJIS, MAPS_USE as MAP } from './maps.mjs';
 export const restartGame = () => {
     PLAYER.lives = 3;
@@ -68,7 +68,7 @@ export const drawMap = () => {
     }
     movePlayer();
 };
-const setCanvasSize = () => {
+export const setCanvasSize = () => {
     const WIDTH_WINDOWS = window.innerWidth;
     const HEIGHT_WINDOWS = window.innerHeight;
     const IS_WIDTH_SMALLER = WIDTH_WINDOWS < HEIGHT_WINDOWS && WIDTH_WINDOWS < 550;
@@ -81,7 +81,7 @@ const setCanvasSize = () => {
     CANVAS.setAttribute('height', sideCanvas);
     elementSize = Number(sideCanvas) / 10.25;
     fontSize = elementSize * 0.82;
-    if (!PLAYER.timeStart) {
+    if (!PLAYER.timeStart && startGame) {
         PLAYER.timeStart = Date.now();
         timeInterval = setInterval(showTime, 90);
     }
