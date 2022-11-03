@@ -21,7 +21,7 @@ export const showTime = () => {
 export const updateLives = () => LIVES.innerText = EMOJIS['LIFE'].repeat(PLAYER.lives);
 const waitATime = (time) => new Promise(resolve => setTimeout(resolve, time));
 export const startCounter = async () => {
-    if (PLAYER.failGame)
+    if (PLAYER.failGame || PLAYER.win)
         restartGame();
     let counter = 3;
     START_DISPLAY.classList.add('hidden');
