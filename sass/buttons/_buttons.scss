@@ -15,6 +15,24 @@
 	}
 }
 
+.scores-container__button {
+	@include font-medium;
+
+	padding-block: 2rem;
+	padding-inline: 1.6rem;
+	border: 0.2rem solid $cream-grey;
+	border-radius: 2rem;
+	margin-block-start: 1.6rem;
+	background-color: $cream-grey;
+	font-weight: bold;
+	color: $white;
+
+	&:active {
+		background-color: $white;
+		color: $cream-grey;
+	}
+}
+
 .button {
 	border-radius: 2rem;
 	background-color: $cream-grey;

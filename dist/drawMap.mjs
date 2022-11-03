@@ -1,5 +1,5 @@
-import { CANVAS, CONTINUE_GAME_CARD } from './elementHtml.mjs';
-import { PLAYER, showTime, TARGET } from './game.js';
+import { CANVAS, CONTINUE_GAME_CARD, SCORES_CARD, SCORE_CONTAINER, SCORE_LIVES, SCORE_TIME, TIME } from './elementHtml.mjs';
+import { PLAYER, showTime, TARGET, updateLives } from './game.js';
 import { EMOJIS, MAPS_USE as MAP, MAP_ERROR } from './maps.mjs';
 export const continueGame = () => {
     CONTINUE_GAME_CARD.classList.remove('hidden');
@@ -8,18 +8,26 @@ export const continueGame = () => {
 };
 export const restartGame = () => {
     CONTINUE_GAME_CARD.classList.add('hidden');
+    SCORE_CONTAINER.classList.add('hidden');
     PLAYER.lives = 3;
     PLAYER.level = 0;
     PLAYER.timeStart = Date.now();
     PLAYER.failGame = false;
     PLAYER.gameStart = false;
+    PLAYER.initialState = true;
+    PLAYER.win = false;
     bugs = [];
     timeInterval = 0;
+    updateLives();
 };
 const gameWin = () => {
     PLAYER.win = true;
     console.log('Ganasteeeee');
     clearInterval(timeInterval);
+    SCORES_CARD.classList.remove('hidden');
+    SCORE_LIVES.innerText = EMOJIS['LIFE'].repeat(PLAYER.lives);
+    SCORE_TIME.innerText = TIME.innerText;
+    // SCORE_RECORD .innerText = ;
 };
 export const newLevel = () => {
     PLAYER.level++;

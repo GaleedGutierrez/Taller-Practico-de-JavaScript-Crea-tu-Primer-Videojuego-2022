@@ -8,20 +8,31 @@ block head
 	+titles("Platziv - Juego Online")
 block main
 	main.main
-		div#main__start-display-id.main__start-display
+		#main__start-display-id.main__start-display
 			h1.start-display__title.start-display__text Laberinto
 			p.start-display__subtitle.start-display__text Guía al programador a no encontrarse con bugs.
 			button#main__button-start-id.start-display__button-start Start
 
-		div#main__counter-container-id.main__counter-container.hidden
+		#main__counter-container-id.main__counter-container.hidden
 			p#main__counter.main__counter
 
-		div#main__continue-game-id.main__continue-game.hidden
+		#main__continue-game-id.main__continue-game.hidden
 			p.continue-game__question ¿Desea continuar jugando?
 			p#continue-game-counter-id.continue-game__timer 10
 			.continue-game__buttons-container
 				button#continue-game__button-yes_id.continue-game__button Si
 				button#continue-game__button-no_id.continue-game__button No
+
+		#main__scores-id.main__scores-container.hidden
+			p.scores-container__title Puntajes
+			.scores-container__info-container
+				p.scores-container__info ❤️Vidas❤️
+				p#main__scores-lives.scores-container__info ❤️❤️❤️
+				p.scores-container__info.scores-container__time-title 🕒Tiempo🕒
+				p#main__scores-time.scores-container__info.scores-container__time 00:00:00
+				p.scores-container__info 🏁Record🏁
+				p#main__scores-record.scores-container__info 00:00:00
+			button#scores-container__button-id.scores-container__button Volver a jugar
 
 		section.main__canvas-and-info-game-container
 			canvas#main__game-container-id.main__game-container

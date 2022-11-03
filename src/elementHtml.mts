@@ -27,3 +27,15 @@ export const CONTINUE_GAME_CARD = document.querySelector('#main__continue-game-i
 export const YES_CONTINUE = document.querySelector('#continue-game__button-yes_id') as HTMLButtonElement;
 
 export const NO_CONTINUE = document.querySelector('#continue-game__button-no_id') as HTMLButtonElement;
+
+export const SCORES_CARD = document.querySelector('#main__scores-id') as HTMLDivElement;
+
+export const SCORE_CONTAINER = document.querySelector('#main__scores-id') as HTMLDivElement;
+
+export const SCORE_LIVES = document.querySelector('#main__scores-lives') as HTMLParagraphElement;
+
+export const SCORE_TIME = document.querySelector('#main__scores-time') as HTMLParagraphElement;
+
+export const SCORE_RECORD = document.querySelector('#main__scores-record') as HTMLParagraphElement;
+
+export const PLAY_AGAIN = document.querySelector('#scores-container__button-id') as HTMLButtonElement;

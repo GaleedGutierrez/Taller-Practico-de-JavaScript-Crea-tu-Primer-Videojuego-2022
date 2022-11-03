@@ -1,5 +1,5 @@
 import { setCanvasSize } from './drawMap.mjs';
-import { BUTTON_START, NO_CONTINUE, YES_CONTINUE } from './elementHtml.mjs';
+import { BUTTON_START, NO_CONTINUE, PLAY_AGAIN, YES_CONTINUE } from './elementHtml.mjs';
 import { initialDisplay, startCounter } from './game.js';
 import { movePlayerWithButtons, movePlayerWithKeys } from './movePlayer.mjs';
 import { BUTTON_DOWN, BUTTON_LEFT, BUTTON_RIGHT, BUTTON_UP } from './elementHtml.mjs';
@@ -14,6 +14,7 @@ export const addEventListenerStart = () => {
 	BUTTON_START.addEventListener('click', startCounter);
 	YES_CONTINUE.addEventListener('click', startCounter);
 	NO_CONTINUE.addEventListener('click', initialDisplay);
+	PLAY_AGAIN.addEventListener('click', startCounter);
 	window.addEventListener('keyup', movePlayerWithKeys);
 	window.addEventListener('load', setCanvasSize);
 	window.addEventListener('resize', setCanvasSize);

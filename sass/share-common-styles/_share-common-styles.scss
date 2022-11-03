@@ -1,6 +1,7 @@
 .main__start-display,
 .main__counter-container,
-.main__continue-game {
+.main__continue-game,
+.main__scores-container {
 	@include all-center-with-display-flex;
 
 	position: absolute;

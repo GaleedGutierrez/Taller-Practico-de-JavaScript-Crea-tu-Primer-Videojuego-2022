@@ -25,7 +25,10 @@ const commonStatementsKeysAndButtons = () => {
 export const movePlayerWithKeys = (event: KeyboardEvent) => {
 	const KEY_PRESS = event.code as keyPressType;
 
-	if (!KEYS[KEY_PRESS] || PLAYER.failGame || !PLAYER.gameStart) return;
+	// debugger;
+	const MOVE = !KEYS[KEY_PRESS] || PLAYER.failGame || !PLAYER.gameStart;
+
+	if (MOVE) return;
 
 	if (KEY_PRESS === 'ArrowLeft' && PLAYER.positionX * 0.02 > 0.5)
 		KEYS[KEY_PRESS]();
