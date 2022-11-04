@@ -17,10 +17,16 @@ body {
 	color: $black;
 }
 
-.main__scores-container {
+.scores-container__scores {
 	background-color: $grey;
 	box-shadow: 0 0.6rem 1rem rgb(245 245 245 / 50%);
 	color: $white;
+}
+
+.scores-container__new-record {
+	background-color: $grey;
+	color: $white;
+	box-shadow: 0 0.6rem 1rem rgb(245 245 245 / 50%);
 }
 
 .scores-container__title {
@@ -73,10 +79,13 @@ body {
 }
 
 .info-game__time {
-	margin-block: 0.8rem;
 	background-color: $blue;
 }
 
 .info-game__record {
 	background-color: $orange;
+}
+
+.only-portrait-message {
+	color: $white;
 }

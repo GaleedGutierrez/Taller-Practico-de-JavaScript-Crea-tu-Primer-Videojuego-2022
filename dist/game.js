@@ -16,10 +16,11 @@ export const showTime = () => {
     const MINUTES_TEXT = (MINUTES < 10)
         ? `0${MINUTES}`
         : `${MINUTES}`;
-    TIME.innerText = `${MINUTES_TEXT}:${SECONDS_TEXT}:${MILLISECONDS_TEXT}`;
+    const FINAL_TEXT = `${MINUTES_TEXT}:${SECONDS_TEXT}:${MILLISECONDS_TEXT}`;
+    TIME.innerText = FINAL_TEXT;
 };
 export const updateLives = () => LIVES.innerText = EMOJIS['LIFE'].repeat(PLAYER.lives);
-const waitATime = (time) => new Promise(resolve => setTimeout(resolve, time));
+export const waitATime = (time) => new Promise(resolve => setTimeout(resolve, time));
 export const startCounter = async () => {
     if (PLAYER.failGame || PLAYER.win)
         restartGame();
@@ -50,6 +51,7 @@ export const PLAYER = {
     failGame: false,
     gameStart: false,
     win: false,
+    finalTime: 0
 };
 export const TARGET = {
     positionX: 0,
@@ -57,4 +59,6 @@ export const TARGET = {
 };
 updateLives();
 addEventListenerStart();
+localStorage.removeItem('record-time');
+localStorage.removeItem('record-time-text');
 //# sourceMappingURL=game.js.map

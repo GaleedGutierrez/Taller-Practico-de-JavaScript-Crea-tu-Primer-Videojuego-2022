@@ -1,4 +1,4 @@
-import { CANVAS, CONTINUE_GAME_CARD, PLAY_AGAIN, SCORES_CARD, SCORE_CONTAINER, SCORE_LIVES, SCORE_RECORD, SCORE_TIME, TIME } from './elementHtml.mjs';
+import { CANVAS, CONTINUE_GAME_CARD, NEW_RECORD_CARD, SCORES_CARD, SCORE_CONTAINER, SCORE_LIVES, SCORE_RECORD, SCORE_TIME, TIME } from './elementHtml.mjs';
 import { PLAYER, showTime, TARGET, updateLives } from './game.js';
 import { InterfaceBugs } from './interface.mjs';
 import {
@@ -17,6 +17,7 @@ export const continueGame = () => {
 export const restartGame = () => {
 	CONTINUE_GAME_CARD.classList.add('hidden');
 	SCORE_CONTAINER.classList.add('hidden');
+	NEW_RECORD_CARD.classList.add('hidden');
 	PLAYER.lives = 3;
 	PLAYER.level = 0;
 	PLAYER.timeStart = Date.now();
@@ -29,15 +30,39 @@ export const restartGame = () => {
 	updateLives();
 };
 
-const gameWin = () => {
-	PLAYER.win = true;
-	console.log('Ganasteeeee');
-	clearInterval(timeInterval);
+const setLocalStorage = () => {
+	NEW_RECORD_CARD.classList.remove('hidden');
+	localStorage.setItem('record-time', PLAYER.finalTime.toString());
+	localStorage.setItem('record-time-text', TIME.innerText);
+	SCORE_RECORD.innerText = localStorage.getItem('record-time-text') ?? '??';
+};
 
+const setRecord = () => {
+	const RECORD_TIME = Number(localStorage.getItem('record-time'));
+
+	PLAYER.finalTime = Date.now() - PLAYER.timeStart;
+
+	if (!RECORD_TIME) {
+		setLocalStorage();
+
+		return;
+	}
+
+	if (RECORD_TIME > PLAYER.finalTime && RECORD_TIME !== 0) {
+		setLocalStorage();
+
+		return;
+	}
+};
+
+const gameWin = () => {
+	clearInterval(timeInterval);
+	PLAYER.win = true;
 	SCORES_CARD.classList.remove('hidden');
 	SCORE_LIVES.innerText = EMOJIS['LIFE'].repeat(PLAYER.lives);
-	SCORE_TIME.innerText = TIME.innerText;
-	// SCORE_RECORD .innerText = ;
+	SCORE_TIME.innerHTML = TIME.innerText;
+	console.log(SCORE_TIME.innerHTML);
+	setRecord();
 };
 
 export const newLevel = () => {

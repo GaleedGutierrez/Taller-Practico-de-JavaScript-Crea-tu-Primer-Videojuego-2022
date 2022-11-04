@@ -12,17 +12,7 @@
 @import "./buttons/buttons";
 @import "./footer/footer";
 
-// @import "./dark/style";
-
-// body {
-//     max-width: 1024px;
-//     margin-block-end: 0;
-//     margin-inline: auto;
-// }
-
-.main {
-	position: relative;
-}
+// @import "./landscape/landscape";
 
 @media (prefers-color-scheme: dark) {
 	/* stylelint-disable-next-line no-invalid-position-at-import-rule */
