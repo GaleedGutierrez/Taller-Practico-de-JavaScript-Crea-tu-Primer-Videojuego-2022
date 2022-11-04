@@ -4,13 +4,14 @@ block head
 	- const SEE_FOOTER = false
 	+style-head("style.css")
 	//- +style-head-responsive("homepage/tablet.css", "800")
-	//- +style-head-responsive("homepage/desktop.css", "1024")
+	+style-head-responsive("desktop.css", "1024")
 	+titles("Platziv - Juego Online")
 block main
-	main.main
+	main.main.main--landscape
 		#main__start-display-id.main__start-display
 			h1.start-display__title.start-display__text Laberinto
 			p.start-display__subtitle.start-display__text Guía al programador a no encontrarse con bugs.
+			//- p.start-display__vertical.start-display__text Si estás usando un smartphone o tablet úsalo de forma vertical.
 			button#main__button-start-id.start-display__button-start Start
 
 		#main__counter-container-id.main__counter-container.hidden
@@ -24,23 +25,25 @@ block main
 				button#continue-game__button-no_id.continue-game__button No
 
 		#main__scores-id.main__scores-container.hidden
-			p.scores-container__title Puntajes
-			.scores-container__info-container
-				p.scores-container__info ❤️Vidas❤️
-				p#main__scores-lives.scores-container__info ❤️❤️❤️
-				p.scores-container__info.scores-container__time-title 🕒Tiempo🕒
-				p#main__scores-time.scores-container__info.scores-container__time 00:00:00
-				p.scores-container__info 🏁Record🏁
-				p#main__scores-record.scores-container__info 00:00:00
-			button#scores-container__button-id.scores-container__button Volver a jugar
+			p#main__new-record-text-id.scores-container__new-record.hidden 🎉¡Nuevo Record!🎉
+			.scores-container__scores
+				p.scores-container__title Puntajes
+				.scores-container__info-container
+					p.scores-container__info ❤️Vidas❤️
+					p#main__scores-lives.scores-container__info ❤️❤️❤️
+					p.scores-container__info.scores-container__time-title 🕒Tiempo🕒
+					p#main__scores-time.scores-container__info.scores-container__time 00:00:00
+					p.scores-container__info 🏁Record🏁
+					p#main__scores-record.scores-container__info 00:00:00
+				button#scores-container__button-id.scores-container__button Volver a jugar
 
 		section.main__canvas-and-info-game-container
 			canvas#main__game-container-id.main__game-container
 
-			section#main__info-game-id.main__info-game
+			section#main__info-game-id.main__info-game.main__info-game--landscape
 				p.info-game__data.info-game__life Vidas:&nbsp;
 					span#info-game__lives-id
-				p.info-game__data.info-game__time Tiempo: 🕒&nbsp;
+				p.info-game__data.info-game__time.info-game__time--landscape Tiempo: 🕒&nbsp;
 					span#info-game__time-id.info-game__time-info
 				p.info-game__data.info-game__record Record: 🏁&nbsp;
 					span#info-record-id 00:00:00

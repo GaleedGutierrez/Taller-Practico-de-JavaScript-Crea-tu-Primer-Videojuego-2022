@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Laberinto realizado en Typescript.">
     <meta name="robots" content="index,follow">
+    <link rel="shortcut icon" href="../assets/logo/programmer-icon.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700;900&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="../css/desktop.css" media="screen and (min-width:1024px)"/>
     <title>Platziv - Juego Online</title>
   </head>
   <body>
-    <main class="main">
+    <main class="main main--landscape">
       <div class="main__start-display" id="main__start-display-id">
         <h1 class="start-display__title start-display__text">Laberinto</h1>
         <p class="start-display__subtitle start-display__text">Guía al programador a no encontrarse con bugs.</p>
@@ -31,22 +33,25 @@
         </div>
       </div>
       <div class="main__scores-container hidden" id="main__scores-id">
-        <p class="scores-container__title">Puntajes</p>
-        <div class="scores-container__info-container">
-          <p class="scores-container__info">❤️Vidas❤️</p>
-          <p class="scores-container__info" id="main__scores-lives">❤️❤️❤️</p>
-          <p class="scores-container__info scores-container__time-title">🕒Tiempo🕒</p>
-          <p class="scores-container__info scores-container__time" id="main__scores-time">00:00:00</p>
-          <p class="scores-container__info">🏁Record🏁</p>
-          <p class="scores-container__info" id="main__scores-record">00:00:00</p>
+        <p class="scores-container__new-record hidden" id="main__new-record-text-id">🎉¡Nuevo Record!🎉</p>
+        <div class="scores-container__scores">
+          <p class="scores-container__title">Puntajes</p>
+          <div class="scores-container__info-container">
+            <p class="scores-container__info">❤️Vidas❤️</p>
+            <p class="scores-container__info" id="main__scores-lives">❤️❤️❤️</p>
+            <p class="scores-container__info scores-container__time-title">🕒Tiempo🕒</p>
+            <p class="scores-container__info scores-container__time" id="main__scores-time">00:00:00</p>
+            <p class="scores-container__info">🏁Record🏁</p>
+            <p class="scores-container__info" id="main__scores-record">00:00:00</p>
+          </div>
+          <button class="scores-container__button" id="scores-container__button-id">Volver a jugar</button>
         </div>
-        <button class="scores-container__button" id="scores-container__button-id">Volver a jugar</button>
       </div>
       <section class="main__canvas-and-info-game-container">
         <canvas class="main__game-container" id="main__game-container-id"></canvas>
-        <section class="main__info-game" id="main__info-game-id">
+        <section class="main__info-game main__info-game--landscape" id="main__info-game-id">
           <p class="info-game__data info-game__life">Vidas:&nbsp;<span id="info-game__lives-id"></span></p>
-          <p class="info-game__data info-game__time">Tiempo: 🕒&nbsp;<span class="info-game__time-info" id="info-game__time-id"></span></p>
+          <p class="info-game__data info-game__time info-game__time--landscape">Tiempo: 🕒&nbsp;<span class="info-game__time-info" id="info-game__time-id"></span></p>
           <p class="info-game__data info-game__record">Record: 🏁&nbsp;<span id="info-record-id">00:00:00</span></p>
         </section>
       </section>

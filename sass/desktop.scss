@@ -1,0 +1,10 @@
+@import "./global/mixins";
+
+body {
+	justify-content: center;
+	height: 100vh;
+}
+
+.main__buttons-container {
+	display: none;
+}

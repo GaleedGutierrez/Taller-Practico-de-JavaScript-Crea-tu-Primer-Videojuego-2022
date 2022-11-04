@@ -11,12 +11,18 @@
 
 html {
 	scroll-behavior: smooth;
+	height: fill-available;
 }
 
 // Opcional
-// body {
-//     min-height: 100vh;
-// }
+body {
+	display: flex; // Opcional
+	flex-direction: column; // Opcional
+	justify-content: center; // Opcional
+	height: fill-available; // Opcional
+	// height: 100vh; // Opcional
+	// min-height: 100vh; // Opcional
+}
 
 /* Evitamos problemas con las imágenes */
 img,

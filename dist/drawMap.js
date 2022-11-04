@@ -1,4 +1,4 @@
-import { CANVAS, CONTINUE_GAME_CARD, NEW_RECORD_CARD, SCORES_CARD, SCORE_CONTAINER, SCORE_LIVES, SCORE_RECORD, SCORE_TIME, TIME } from './elementHtml.mjs';
+import { CANVAS, CONTINUE_GAME_CARD, SCORES_CARD, SCORE_CONTAINER, SCORE_LIVES, SCORE_RECORD, SCORE_TIME, TIME } from './elementHtml.mjs';
 import { PLAYER, showTime, TARGET, updateLives } from './game.js';
 import { EMOJIS, MAPS_USE as MAP, MAP_ERROR } from './maps.mjs';
 export const continueGame = () => {
@@ -9,7 +9,6 @@ export const continueGame = () => {
 export const restartGame = () => {
     CONTINUE_GAME_CARD.classList.add('hidden');
     SCORE_CONTAINER.classList.add('hidden');
-    NEW_RECORD_CARD.classList.add('hidden');
     PLAYER.lives = 3;
     PLAYER.level = 0;
     PLAYER.timeStart = Date.now();
@@ -21,31 +20,27 @@ export const restartGame = () => {
     timeInterval = 0;
     updateLives();
 };
-const setLocalStorage = () => {
-    NEW_RECORD_CARD.classList.remove('hidden');
-    localStorage.setItem('record-time', PLAYER.finalTime.toString());
-    localStorage.setItem('record-time-text', TIME.innerText);
-    SCORE_RECORD.innerText = localStorage.getItem('record-time-text') ?? '??';
-};
 const setRecord = () => {
-    const RECORD_TIME = Number(localStorage.getItem('record-time'));
+    const RECORD_TIME = localStorage.getItem('record-time');
     PLAYER.finalTime = Date.now() - PLAYER.timeStart;
-    if (!RECORD_TIME) {
-        setLocalStorage();
-        return;
+    debugger;
+    if (RECORD_TIME === null) {
+        localStorage.setItem('record-time', PLAYER.finalTime.toString());
+        // return;
     }
-    if (RECORD_TIME > PLAYER.finalTime && RECORD_TIME !== 0) {
-        setLocalStorage();
-        return;
-    }
+    if (Number(RECORD_TIME) > PLAYER.finalTime && RECORD_TIME !== 0)
+        localStorage.setItem('record-time', PLAYER.finalTime.toString());
+    SCORE_RECORD.innerText = (RECORD_TIME)
+        ? showTime('win') ?? ''
+        : SCORE_TIME.innerText;
 };
 const gameWin = () => {
-    clearInterval(timeInterval);
     PLAYER.win = true;
+    console.log('Ganasteeeee');
+    clearInterval(timeInterval);
     SCORES_CARD.classList.remove('hidden');
     SCORE_LIVES.innerText = EMOJIS['LIFE'].repeat(PLAYER.lives);
-    SCORE_TIME.innerHTML = TIME.innerText;
-    console.log(SCORE_TIME.innerHTML);
+    SCORE_TIME.innerText = TIME.innerText;
     setRecord();
 };
 export const newLevel = () => {
@@ -134,4 +129,4 @@ const GAME = CANVAS.getContext('2d');
 GAME.textAlign = 'left';
 let fontSize = 0;
 let timeInterval = 0;
-//# sourceMappingURL=drawMap.mjs.map
+//# sourceMappingURL=drawMap.js.map

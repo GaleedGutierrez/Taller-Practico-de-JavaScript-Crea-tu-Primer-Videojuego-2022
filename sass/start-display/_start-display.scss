@@ -8,8 +8,15 @@
 
 .start-display__subtitle {
 	max-width: 25.2rem;
-	margin-block: 2.4rem;
+	margin-block: 2.4rem 1.2rem;
 }
+
+// .start-display__vertical {
+// 	@include font-small;
+
+// 	max-width: 36rem;
+// 	margin-block: 0 2.4rem;
+// }
 
 .start-display__button-start {
 	padding-block: 2rem;

@@ -1,9 +1,27 @@
 .main__scores-container {
 	left: calc(50% - 13.349rem);
-	top: calc(50% - 17.3rem);
+	top: calc(50% - 20.5rem);
 	width: fit-content;
 	height: fit-content;
-	padding-block: 1.6rem;
+	background: none;
+	backdrop-filter: none;
+}
+
+.scores-container__new-record {
+	@include font-medium;
+
+	width: 100%;
+	height: fit-content;
+	padding-block: 0.8rem;
+	border-radius: 1rem;
+	margin-block-end: 1.2rem;
+	background-color: $white;
+	font-weight: bold;
+	box-shadow: 0 0.6rem 1rem rgb(29 29 30 / 50%);
+}
+
+.scores-container__scores {
+	padding-block: 2rem;
 	padding-inline: 4rem;
 	border-radius: 2rem;
 	background: none;
