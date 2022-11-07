@@ -20,4 +20,5 @@ export const SCORE_TIME = document.querySelector('#main__scores-time');
 export const SCORE_RECORD = document.querySelector('#main__scores-record');
 export const PLAY_AGAIN = document.querySelector('#scores-container__button-id');
 export const NEW_RECORD_CARD = document.querySelector('#main__new-record-text-id');
+export const BROKEN_HEART = document.querySelector('#main__broken-heart-id');
 //# sourceMappingURL=elementHtml.mjs.map

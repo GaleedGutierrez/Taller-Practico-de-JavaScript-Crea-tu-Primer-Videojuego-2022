@@ -1,7 +1,8 @@
 import { collisionWithBugs, collisionWithTarget } from './collisions.mjs';
 import { drawMap, elementSize, sideCanvas } from './drawMap.mjs';
+import { BROKEN_HEART } from './elementHtml.mjs';
 
-import { PLAYER } from './game.js';
+import { PLAYER, waitATime } from './game.js';
 import { buttonsClickedType, keyPressType } from './types.mjs';
 
 const movePlayerLeft = () => {
@@ -14,7 +15,7 @@ const movePlayerUp = () => PLAYER.positionY -= elementSize;
 const movePlayerRight = () => PLAYER.positionX += elementSize;
 const movePlayerDown = () => PLAYER.positionY += elementSize;
 
-const commonStatementsKeysAndButtons = () => {
+const commonStatementsKeysAndButtons = async () => {
 	if (PLAYER.initialState) PLAYER.initialState = false;
 
 	collisionWithTarget();
@@ -79,3 +80,7 @@ const KEYS = {
 	ArrowRight : movePlayerRight,
 	ArrowDown  : movePlayerDown,
 };
+
+BROKEN_HEART.addEventListener('animationend', () => {
+	BROKEN_HEART.classList.remove('main__broken-heart--animate');
+});

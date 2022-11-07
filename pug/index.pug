@@ -8,11 +8,17 @@ block head
 	+titles("Platziv - Juego Online")
 block main
 	main.main.main--landscape
-		#main__start-display-id.main__start-display
+		p.main__counter_levels 1 / 5
+		#main__start-display-id.main__start-display.hidden
 			h1.start-display__title.start-display__text Laberinto
 			p.start-display__subtitle.start-display__text Guía al programador a no encontrarse con bugs.
-			//- p.start-display__vertical.start-display__text Si estás usando un smartphone o tablet úsalo de forma vertical.
 			button#main__button-start-id.start-display__button-start Start
+
+		//- #main__game-instructions-id.main__game-instructions
+		//- 	p Instrucciones
+		//- 	p Tienes que llevar al programador 👨‍💻 hasta su objetivo ✅ evitando a los bugs 👾.
+		//- 	p Puedes utilizar los botones ⇐, ⇑, ⇒, ⇓, las de tu teclado o las letras a, w, d, s para mover al programador.
+
 
 		#main__counter-container-id.main__counter-container.hidden
 			p#main__counter.main__counter
@@ -38,6 +44,7 @@ block main
 				button#scores-container__button-id.scores-container__button Volver a jugar
 
 		section.main__canvas-and-info-game-container
+			p#main__broken-heart-id.main__broken-heart.main__broken-heart--animate 💔
 			canvas#main__game-container-id.main__game-container
 
 			section#main__info-game-id.main__info-game.main__info-game--landscape

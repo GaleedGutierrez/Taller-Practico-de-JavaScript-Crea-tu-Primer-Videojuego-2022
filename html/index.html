@@ -16,7 +16,8 @@
   </head>
   <body>
     <main class="main main--landscape">
-      <div class="main__start-display" id="main__start-display-id">
+      <p class="main__counter_levels">1 / 5</p>
+      <div class="main__start-display hidden" id="main__start-display-id">
         <h1 class="start-display__title start-display__text">Laberinto</h1>
         <p class="start-display__subtitle start-display__text">Guía al programador a no encontrarse con bugs.</p>
         <button class="start-display__button-start" id="main__button-start-id">Start</button>
@@ -48,6 +49,7 @@
         </div>
       </div>
       <section class="main__canvas-and-info-game-container">
+        <p class="main__broken-heart main__broken-heart--animate" id="main__broken-heart-id">💔</p>
         <canvas class="main__game-container" id="main__game-container-id"></canvas>
         <section class="main__info-game main__info-game--landscape" id="main__info-game-id">
           <p class="info-game__data info-game__life">Vidas:&nbsp;<span id="info-game__lives-id"></span></p>

@@ -1,4 +1,5 @@
 import { bugs, continueGame, newLevel } from './drawMap.mjs';
+import { BROKEN_HEART } from './elementHtml.mjs';
 import { PLAYER, updateLives, TARGET } from './game.js';
 
 const levelFail = () => {
@@ -22,6 +23,7 @@ export const collisionWithBugs = () => {
 
 	if (!COLLISION_WITH_BUG) return;
 
+	BROKEN_HEART.classList.add('main__broken-heart--animate');
 	levelFail();
 };
 

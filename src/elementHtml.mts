@@ -41,3 +41,5 @@ export const SCORE_RECORD = document.querySelector('#main__scores-record') as HT
 export const PLAY_AGAIN = document.querySelector('#scores-container__button-id') as HTMLButtonElement;
 
 export const NEW_RECORD_CARD = document.querySelector('#main__new-record-text-id') as HTMLParagraphElement;
+
+export const BROKEN_HEART = document.querySelector('#main__broken-heart-id') as HTMLParagraphElement;
