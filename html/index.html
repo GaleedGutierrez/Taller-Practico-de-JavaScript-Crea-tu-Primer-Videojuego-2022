@@ -16,11 +16,16 @@
   </head>
   <body>
     <main class="main main--landscape">
-      <p class="main__counter_levels">1 / 5</p>
-      <div class="main__start-display hidden" id="main__start-display-id">
+      <div class="main__start-display" id="main__start-display-id">
         <h1 class="start-display__title start-display__text">Laberinto</h1>
         <p class="start-display__subtitle start-display__text">Guía al programador a no encontrarse con bugs.</p>
         <button class="start-display__button-start" id="main__button-start-id">Start</button>
+      </div>
+      <div class="main__game-instructions hidden" id="main__game-instructions-id">
+        <p class="game-instructions__text game-instructions__title">Instrucciones</p>
+        <p class="game-instructions__text game-instructions__text-middle">Tienes que llevar al programador 👨‍💻 hasta su objetivo ✅ evitando a los bugs 👾.</p>
+        <p class="game-instructions__text">Puedes utilizar los botones ⇐, ⇑, ⇒, ⇓, las flechas de tu teclado o las letras a, w, d, s para mover al programador.</p>
+        <button class="game-instructions__button" id="game-instructions__button-id">Start</button>
       </div>
       <div class="main__counter-container hidden" id="main__counter-container-id">
         <p class="main__counter" id="main__counter"></p>
@@ -50,6 +55,7 @@
       </div>
       <section class="main__canvas-and-info-game-container">
         <p class="main__broken-heart main__broken-heart--animate" id="main__broken-heart-id">💔</p>
+        <p class="main__counter-levels" id="main__counter-levels-id"></p>
         <canvas class="main__game-container" id="main__game-container-id"></canvas>
         <section class="main__info-game main__info-game--landscape" id="main__info-game-id">
           <p class="info-game__data info-game__life">Vidas:&nbsp;<span id="info-game__lives-id"></span></p>

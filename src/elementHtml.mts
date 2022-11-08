@@ -43,3 +43,9 @@ export const PLAY_AGAIN = document.querySelector('#scores-container__button-id')
 export const NEW_RECORD_CARD = document.querySelector('#main__new-record-text-id') as HTMLParagraphElement;
 
 export const BROKEN_HEART = document.querySelector('#main__broken-heart-id') as HTMLParagraphElement;
+
+export const COUNTER_NEXT_LEVEL = document.querySelector('#main__counter-levels-id') as HTMLParagraphElement;
+
+export const START_COUNTER_BUTTON = document.querySelector('#game-instructions__button-id') as HTMLButtonElement;
+
+export const INSTRUCTIONS_CONTAINER = document.querySelector('#main__game-instructions-id') as HTMLDivElement;

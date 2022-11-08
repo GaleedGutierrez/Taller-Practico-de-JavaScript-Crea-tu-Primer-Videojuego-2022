@@ -179,6 +179,7 @@
 
 			"color",
 			"shadow-box"
-		]
+		],
+		"unit-allowed-list": ["rem", "%" , "ms", "deg"]
 	}
 }

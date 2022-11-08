@@ -2,7 +2,8 @@
 .main__counter-container,
 .main__continue-game,
 .main__scores-container,
-.main__new-record-text {
+.main__new-record-text,
+.main__game-instructions {
 	@include all-center-with-display-flex;
 
 	position: absolute;
@@ -16,6 +17,6 @@
 	height: 100%;
 	background: linear-gradient(163.96deg, $white 3.26%, rgb(95 97 100 / 10%) 95.59%);
 	text-align: center;
-	backdrop-filter: blur(20px);
+	backdrop-filter: blur(2rem);
 	transition-duration: 400ms;
 }

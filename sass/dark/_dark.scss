@@ -3,18 +3,20 @@ body {
 }
 
 .main__start-display,
-.main__counter-container {
+.main__counter-container,
+.main__game-instructions {
 	background: linear-gradient(163.96deg, rgb(95 97 100 / 40%) 3.26%, rgb(95 97 100 / 10%) 95.59%);
 	color: $white;
 }
 
-.start-display__button-start {
+.start-display__button-start,
+.game-instructions__button {
 	background-color: $grey;
-}
 
-.start-display__button-start:active {
-	background-color: $white;
-	color: $black;
+	&:active {
+		background-color: $white;
+		color: $black;
+	}
 }
 
 .scores-container__scores {
@@ -53,6 +55,11 @@ body {
 
 	// color $white
 	box-shadow: 0 0.6rem 1rem rgb(245 245 245 / 50%);
+}
+
+.main__counter-levels {
+	background-color: $white;
+	color: $grey;
 }
 
 .button {

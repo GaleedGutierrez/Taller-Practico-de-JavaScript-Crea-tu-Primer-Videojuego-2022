@@ -1,8 +1,7 @@
 import { collisionWithBugs, collisionWithTarget } from './collisions.mjs';
 import { drawMap, elementSize, sideCanvas } from './drawMap.mjs';
-import { BROKEN_HEART } from './elementHtml.mjs';
 
-import { PLAYER, waitATime } from './game.js';
+import { PLAYER } from './game.js';
 import { buttonsClickedType, keyPressType } from './types.mjs';
 
 const movePlayerLeft = () => {
@@ -29,18 +28,20 @@ export const movePlayerWithKeys = (event: KeyboardEvent) => {
 	// debugger;
 	const MOVE = !KEYS[KEY_PRESS] || PLAYER.failGame || !PLAYER.gameStart;
 
+	console.log(MOVE);
+
 	if (MOVE) return;
 
-	if (KEY_PRESS === 'ArrowLeft' && PLAYER.positionX * 0.02 > 0.5)
+	if ((KEY_PRESS === 'ArrowLeft' || KEY_PRESS === 'KeyA') && PLAYER.positionX * 0.02 > 0.5)
 		KEYS[KEY_PRESS]();
 
-	if (KEY_PRESS === 'ArrowUp' && PLAYER.positionY * 0.02 > 1)
+	if ((KEY_PRESS === 'ArrowUp' || KEY_PRESS === 'KeyW') && PLAYER.positionY * 0.02 > 1)
 		KEYS[KEY_PRESS]();
 
-	if (KEY_PRESS === 'ArrowRight' && PLAYER.positionX * 1.2 < Number(sideCanvas))
+	if ((KEY_PRESS === 'ArrowRight' || KEY_PRESS === 'KeyD') && PLAYER.positionX * 1.2 < Number(sideCanvas))
 		KEYS[KEY_PRESS]();
 
-	if (KEY_PRESS === 'ArrowDown' && PLAYER.positionY * 1.13 < Number(sideCanvas))
+	if ((KEY_PRESS === 'ArrowDown' || KEY_PRESS === 'KeyS') && PLAYER.positionY * 1.13 < Number(sideCanvas))
 		KEYS[KEY_PRESS]();
 
 	commonStatementsKeysAndButtons();
@@ -79,8 +80,8 @@ const KEYS = {
 	ArrowUp    : movePlayerUp,
 	ArrowRight : movePlayerRight,
 	ArrowDown  : movePlayerDown,
+	KeyA       : movePlayerLeft,
+	KeyW       : movePlayerUp,
+	KeyD       : movePlayerRight,
+	KeyS       : movePlayerDown,
 };
-
-BROKEN_HEART.addEventListener('animationend', () => {
-	BROKEN_HEART.classList.remove('main__broken-heart--animate');
-});

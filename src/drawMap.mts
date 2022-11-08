@@ -1,4 +1,4 @@
-import { CANVAS, CONTINUE_GAME_CARD, NEW_RECORD_CARD, SCORES_CARD, SCORE_CONTAINER, SCORE_LIVES, SCORE_RECORD, SCORE_TIME, TIME } from './elementHtml.mjs';
+import { CANVAS, CONTINUE_GAME_CARD, COUNTER_NEXT_LEVEL, NEW_RECORD_CARD, SCORES_CARD, SCORE_CONTAINER, SCORE_LIVES, SCORE_RECORD, SCORE_TIME, TIME } from './elementHtml.mjs';
 import { PLAYER, showTime, TARGET, updateLives } from './game.js';
 import { InterfaceBugs } from './interface.mjs';
 import {
@@ -68,6 +68,12 @@ const gameWin = () => {
 export const newLevel = () => {
 	PLAYER.level++;
 	bugs = [];
+
+	if (PLAYER.level !== MAP.length - 1) {
+		COUNTER_NEXT_LEVEL.innerText = `${PLAYER.level + 1} / ${MAP.length - 1}`;
+
+		COUNTER_NEXT_LEVEL.classList.add('main__counter-levels--animate');
+	}
 
 	if (PLAYER.level < MAP.length - 1) return;
 
