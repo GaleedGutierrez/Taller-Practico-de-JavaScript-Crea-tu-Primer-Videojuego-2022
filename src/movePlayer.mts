@@ -14,7 +14,7 @@ const movePlayerUp = () => PLAYER.positionY -= elementSize;
 const movePlayerRight = () => PLAYER.positionX += elementSize;
 const movePlayerDown = () => PLAYER.positionY += elementSize;
 
-const commonStatementsKeysAndButtons = () => {
+const commonStatementsKeysAndButtons = async () => {
 	if (PLAYER.initialState) PLAYER.initialState = false;
 
 	collisionWithTarget();
@@ -28,18 +28,20 @@ export const movePlayerWithKeys = (event: KeyboardEvent) => {
 	// debugger;
 	const MOVE = !KEYS[KEY_PRESS] || PLAYER.failGame || !PLAYER.gameStart;
 
+	console.log(MOVE);
+
 	if (MOVE) return;
 
-	if (KEY_PRESS === 'ArrowLeft' && PLAYER.positionX * 0.02 > 0.5)
+	if ((KEY_PRESS === 'ArrowLeft' || KEY_PRESS === 'KeyA') && PLAYER.positionX * 0.02 > 0.5)
 		KEYS[KEY_PRESS]();
 
-	if (KEY_PRESS === 'ArrowUp' && PLAYER.positionY * 0.02 > 1)
+	if ((KEY_PRESS === 'ArrowUp' || KEY_PRESS === 'KeyW') && PLAYER.positionY * 0.02 > 1)
 		KEYS[KEY_PRESS]();
 
-	if (KEY_PRESS === 'ArrowRight' && PLAYER.positionX * 1.2 < Number(sideCanvas))
+	if ((KEY_PRESS === 'ArrowRight' || KEY_PRESS === 'KeyD') && PLAYER.positionX * 1.2 < Number(sideCanvas))
 		KEYS[KEY_PRESS]();
 
-	if (KEY_PRESS === 'ArrowDown' && PLAYER.positionY * 1.13 < Number(sideCanvas))
+	if ((KEY_PRESS === 'ArrowDown' || KEY_PRESS === 'KeyS') && PLAYER.positionY * 1.13 < Number(sideCanvas))
 		KEYS[KEY_PRESS]();
 
 	commonStatementsKeysAndButtons();
@@ -78,4 +80,8 @@ const KEYS = {
 	ArrowUp    : movePlayerUp,
 	ArrowRight : movePlayerRight,
 	ArrowDown  : movePlayerDown,
+	KeyA       : movePlayerLeft,
+	KeyW       : movePlayerUp,
+	KeyD       : movePlayerRight,
+	KeyS       : movePlayerDown,
 };

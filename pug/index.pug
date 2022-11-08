@@ -11,8 +11,14 @@ block main
 		#main__start-display-id.main__start-display
 			h1.start-display__title.start-display__text Laberinto
 			p.start-display__subtitle.start-display__text Guía al programador a no encontrarse con bugs.
-			//- p.start-display__vertical.start-display__text Si estás usando un smartphone o tablet úsalo de forma vertical.
 			button#main__button-start-id.start-display__button-start Start
+
+		#main__game-instructions-id.main__game-instructions.hidden
+			p.game-instructions__text.game-instructions__title Instrucciones
+			p.game-instructions__text.game-instructions__text-middle Tienes que llevar al programador 👨‍💻 hasta su objetivo ✅ evitando a los bugs 👾.
+			p.game-instructions__text Puedes utilizar los botones ⇐, ⇑, ⇒, ⇓, las flechas de tu teclado o las letras a, w, d, s para mover al programador.
+			button#game-instructions__button-id.game-instructions__button Start
+
 
 		#main__counter-container-id.main__counter-container.hidden
 			p#main__counter.main__counter
@@ -38,6 +44,8 @@ block main
 				button#scores-container__button-id.scores-container__button Volver a jugar
 
 		section.main__canvas-and-info-game-container
+			p#main__broken-heart-id.main__broken-heart.main__broken-heart--animate 💔
+			p#main__counter-levels-id.main__counter-levels
 			canvas#main__game-container-id.main__game-container
 
 			section#main__info-game-id.main__info-game.main__info-game--landscape

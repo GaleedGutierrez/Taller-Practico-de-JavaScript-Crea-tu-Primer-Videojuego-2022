@@ -1,6 +1,6 @@
 import { restartGame, setCanvasSize } from './drawMap.mjs';
 import { EMOJIS } from './maps.mjs';
-import { COUNTER_START, COUNTER_START_CONTAINER, LIVES, START_DISPLAY, TIME } from './elementHtml.mjs';
+import { COUNTER_START, COUNTER_START_CONTAINER, INSTRUCTIONS_CONTAINER, LIVES, START_DISPLAY, TIME } from './elementHtml.mjs';
 import { addEventListenerStart } from './addEventListener.mjs';
 export const showTime = () => {
     const CURRENT_TIME = Date.now() - PLAYER.timeStart;
@@ -25,7 +25,7 @@ export const startCounter = async () => {
     if (PLAYER.failGame || PLAYER.win)
         restartGame();
     let counter = 3;
-    START_DISPLAY.classList.add('hidden');
+    INSTRUCTIONS_CONTAINER.classList.add('hidden');
     COUNTER_START_CONTAINER.classList.remove('hidden');
     while (counter > 0) {
         COUNTER_START.innerText = counter.toString();
@@ -39,6 +39,10 @@ export const startCounter = async () => {
 export const initialDisplay = () => {
     START_DISPLAY.classList.remove('hidden');
     restartGame();
+};
+export const showInstructions = () => {
+    START_DISPLAY.classList.add('hidden');
+    INSTRUCTIONS_CONTAINER.classList.remove('hidden');
 };
 export const PLAYER = {
     avatar: EMOJIS['PLAYER'],
@@ -59,6 +63,4 @@ export const TARGET = {
 };
 updateLives();
 addEventListenerStart();
-localStorage.removeItem('record-time');
-localStorage.removeItem('record-time-text');
 //# sourceMappingURL=game.js.map
