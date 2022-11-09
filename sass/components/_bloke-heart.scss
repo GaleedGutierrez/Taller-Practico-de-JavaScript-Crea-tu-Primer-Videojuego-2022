@@ -1,0 +1,14 @@
+.main__broken-heart {
+	position: absolute;
+	left: calc(50% - 2.746rem);
+	top: calc(50% - 10.2rem);
+	display: inline-block;
+	font-size: 4rem;
+	line-height: normal;
+	opacity: 0;
+}
+
+.main__broken-heart--animate {
+	opacity: 1;
+	animation: text-blur-out 1000ms cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}

@@ -1,0 +1,4 @@
+@keyframes text-blur-out {
+	0% { filter: blur(0.01); }
+	100% { filter: blur(1.2rem) opacity(0); }
+}

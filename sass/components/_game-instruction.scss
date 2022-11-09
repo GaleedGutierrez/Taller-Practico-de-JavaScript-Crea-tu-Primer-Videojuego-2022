@@ -1,0 +1,14 @@
+.game-instructions__title {
+	@include font-large;
+
+	text-decoration: underline;
+}
+
+.game-instructions__text-middle {
+	margin-block: 3.2rem 0.8rem;
+}
+
+.game-instructions__text {
+	max-width: 32rem;
+	font-weight: bold;
+}
