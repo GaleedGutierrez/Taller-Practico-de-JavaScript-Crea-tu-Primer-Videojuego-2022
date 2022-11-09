@@ -3,45 +3,18 @@ block head
 	- const SEE_HEADER = false
 	- const SEE_FOOTER = false
 	+style-head("style.css")
-	//- +style-head-responsive("homepage/tablet.css", "800")
 	+style-head-responsive("desktop.css", "1024")
 	+titles("Platziv - Juego Online")
 block main
-	main.main.main--landscape
-		#main__start-display-id.main__start-display
-			h1.start-display__title.start-display__text Laberinto
-			p.start-display__subtitle.start-display__text Guía al programador a no encontrarse con bugs.
-			button#main__button-start-id.start-display__button-start Start
-
-		#main__game-instructions-id.main__game-instructions.hidden
-			p.game-instructions__text.game-instructions__title Instrucciones
-			p.game-instructions__text.game-instructions__text-middle Tienes que llevar al programador 👨‍💻 hasta su objetivo ✅ evitando a los bugs 👾.
-			p.game-instructions__text Puedes utilizar los botones ⇐, ⇑, ⇒, ⇓, las flechas de tu teclado o las letras a, w, d, s para mover al programador.
-			button#game-instructions__button-id.game-instructions__button Start
-
+	main.main
+		+start-display
+		+instructions
 
 		#main__counter-container-id.main__counter-container.hidden
 			p#main__counter.main__counter
 
-		#main__continue-game-id.main__continue-game.hidden
-			p.continue-game__question ¿Desea continuar jugando?
-			p#continue-game-counter-id.continue-game__timer 10
-			.continue-game__buttons-container
-				button#continue-game__button-yes_id.continue-game__button Si
-				button#continue-game__button-no_id.continue-game__button No
-
-		#main__scores-id.main__scores-container.hidden
-			p#main__new-record-text-id.scores-container__new-record.hidden 🎉¡Nuevo Record!🎉
-			.scores-container__scores
-				p.scores-container__title Puntajes
-				.scores-container__info-container
-					p.scores-container__info ❤️Vidas❤️
-					p#main__scores-lives.scores-container__info ❤️❤️❤️
-					p.scores-container__info.scores-container__time-title 🕒Tiempo🕒
-					p#main__scores-time.scores-container__info.scores-container__time 00:00:00
-					p.scores-container__info 🏁Record🏁
-					p#main__scores-record.scores-container__info 00:00:00
-				button#scores-container__button-id.scores-container__button Volver a jugar
+		+continue-game
+		+scores
 
 		section.main__canvas-and-info-game-container
 			p#main__broken-heart-id.main__broken-heart.main__broken-heart--animate 💔
@@ -56,11 +29,7 @@ block main
 				p.info-game__data.info-game__record Record: 🏁&nbsp;
 					span#info-record-id 00:00:00
 
-		section.main__buttons-container
-			button#main__button-left-id.button.main__button-left ⇐
-			button#main__button-up-id.button.main__button-up ⇑
-			button#main__button-right-id.button.main__button-right ⇒
-			button#main__button-down-id.button.main__button-down ⇓
+		+buttons-move
 
 block scripts
 	script(async src="https://www.googletagmanager.com/gtag/js?id=G-M8H4YB694S")

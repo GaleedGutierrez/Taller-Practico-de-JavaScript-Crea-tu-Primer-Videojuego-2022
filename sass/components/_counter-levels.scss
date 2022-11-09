@@ -1,0 +1,20 @@
+.main__counter-levels {
+	@include font-large;
+
+	position: absolute;
+	left: calc(50% - 3.4845rem);
+	top: calc(50% - 9.2rem);
+	width: fit-content;
+	height: fit-content;
+	padding: 1.2rem;
+	border-radius: 2rem;
+	background-color: $grey;
+	font-weight: bold;
+	color: $white;
+	opacity: 0;
+}
+
+.main__counter-levels--animate {
+	opacity: 1;
+	animation: text-blur-out 1250ms cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}

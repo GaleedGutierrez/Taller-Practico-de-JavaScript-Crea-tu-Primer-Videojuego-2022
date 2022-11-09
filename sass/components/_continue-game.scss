@@ -1,0 +1,31 @@
+.main__continue-game {
+	left: calc(50% - 16.7885rem);
+	top: calc(50% - 8.025rem);
+	width: fit-content;
+	height: fit-content;
+	padding-block: 2rem;
+	padding-inline: 2rem;
+	border-radius: 2rem;
+	background: none;
+	background-color: $white;
+	backdrop-filter: none;
+	box-shadow: 0 0.6rem 1rem rgb(29 29 30 / 50%); // color: $black
+}
+
+.continue-game__question {
+	@include font-medium;
+
+	font-weight: bold;
+}
+
+.continue-game__timer {
+	@include font-large;
+
+	margin-block: 0.8rem;
+	font-weight: bold;
+}
+
+.continue-game__buttons-container {
+	display: flex;
+	gap: 4.8rem;
+}

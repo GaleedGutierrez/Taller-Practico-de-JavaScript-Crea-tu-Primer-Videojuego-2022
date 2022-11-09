@@ -82,9 +82,7 @@ export const newLevel = () => {
 	TARGET.positionY = -1;
 };
 
-const movePlayer = () => {
-	GAME.fillText(PLAYER.avatar, PLAYER.positionX, PLAYER.positionY);
-};
+const movePlayer = () => GAME.fillText(PLAYER.avatar, PLAYER.positionX, PLAYER.positionY);
 
 const setPositions = (emojiDraw: emojisType, xDraw: number, yDraw: number) => {
 	const IS_I = emojiDraw === 'I';
